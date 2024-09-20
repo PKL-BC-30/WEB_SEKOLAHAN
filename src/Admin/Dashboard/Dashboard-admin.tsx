@@ -6,8 +6,6 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const [chartData, setChartData] = createSignal([]);
-  const [pieChartData, setPieChartData] = createSignal([]);
   const [selectedStats, setSelectedStats] = createSignal([]);
   const [availableStats, setAvailableStats] = createSignal([
     'Total User',
@@ -16,8 +14,24 @@ const Dashboard = () => {
     'Total Mata Pelajaran',
     'Total Ekstrakurikuler',
   ]);
+  const [selectedCharts, setSelectedCharts] = createSignal([]);
+  const [availableCharts, setAvailableCharts] = createSignal([
+    'Line', 'Donut', 'Pie'
+  ]);
+  const [showChartModal, setShowChartModal] = createSignal(false);
+  const [newChart, setNewChart] = createSignal('');
   const [showAddStatModal, setShowAddStatModal] = createSignal(false);
   const [newStat, setNewStat] = createSignal('');
+
+
+  const addChart = () => {
+    if (selectedCharts().length < 2 && !selectedCharts().includes(newChart())) {
+      setSelectedCharts([...selectedCharts(), newChart()]);
+      setAvailableCharts(availableCharts().filter(chart => chart !== newChart()));
+      setNewChart('');
+      setShowChartModal(false);
+    }
+  };
 
   const addStat = () => {
     if (selectedStats().length < 5 && !selectedStats().some(item => item.title === newStat())) {
@@ -28,98 +42,102 @@ const Dashboard = () => {
     }
   };
 
+
   const removeStat = (stat) => {
     setSelectedStats(selectedStats().filter(item => item.title !== stat));
     setAvailableStats([...availableStats(), stat]);
   };
+  const removeChart = (chart) => {
+    setSelectedCharts(selectedCharts().filter(c => c !== chart));
+    setAvailableCharts([...availableCharts(), chart]);
+  };
+
 
   createEffect(() => {
-    // Line chart data
-    const data = [
-      { date: new Date(2022, 0, 1).getTime(), value: 20 },
-      { date: new Date(2022, 1, 1).getTime(), value: 35 },
-      { date: new Date(2022, 2, 1).getTime(), value: 64366 },
-      // ... more data points
-    ];
-    setChartData(data);
-
-    // Pie chart data
-    const pieData = [
-      { category: "Shopping", value: 50 },
-      { category: "Food", value: 10 },
-      { category: "Entertain", value: 20 },
-      { category: "Hobby", value: 20 },
-    ];
-    setPieChartData(pieData);
+    selectedCharts().forEach((chartType, index) => {
+      const chartDivId = `${chartType.toLowerCase()}ChartDiv-${index}`;
+      
+      // Line Chart
+      if (chartType === 'Line') {
+        let root = am5.Root.new(chartDivId);
+        root.setThemes([am5themes_Animated.new(root)]);
+  
+        let chart = root.container.children.push(
+          am5xy.XYChart.new(root, {
+            panX: true,
+            panY: true,
+            wheelX: "panX",
+            wheelY: "zoomX",
+          })
+        );
+  
+        let xAxis = chart.xAxes.push(
+          am5xy.DateAxis.new(root, {
+            maxDeviation: 0.3,
+            baseInterval: { timeUnit: "day", count: 1 },
+            renderer: am5xy.AxisRendererX.new(root, {}),
+          })
+        );
+  
+        let yAxis = chart.yAxes.push(
+          am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {}),
+          })
+        );
+  
+        let series = chart.series.push(
+          am5xy.LineSeries.new(root, {
+            name: "Series",
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: "value",
+            valueXField: "date",
+            tooltip: am5.Tooltip.new(root, {
+              labelText: "{valueY}",
+            }),
+          })
+        );
+  
+        series.data.setAll([
+          { date: new Date(2022, 0, 1).getTime(), value: 20 },
+          { date: new Date(2022, 1, 1).getTime(), value: 35 },
+          { date: new Date(2022, 2, 1).getTime(), value: 64366 },
+        ]);
+  
+        return () => root.dispose();
+      }
+  
+      // Pie or Donut Chart
+      if (chartType === 'Pie' || chartType === 'Donut') {
+        let root = am5.Root.new(chartDivId);
+        root.setThemes([am5themes_Animated.new(root)]);
+  
+        let chart = root.container.children.push(
+          am5percent.PieChart.new(root, {
+            layout: root.verticalLayout,
+            innerRadius: chartType === 'Donut' ? am5.percent(50) : 0, // Set inner radius for donut chart
+          })
+        );
+  
+        let series = chart.series.push(
+          am5percent.PieSeries.new(root, {
+            valueField: "value",
+            categoryField: "category",
+          })
+        );
+  
+        series.data.setAll([
+          { category: "Shopping", value: 50 },
+          { category: "Food", value: 10 },
+          { category: "Entertainment", value: 20 },
+          { category: "Hobby", value: 20 },
+        ]);
+  
+        return () => root.dispose();
+      }
+    });
   });
-
-  createEffect(() => {
-    // Line Chart
-    let root = am5.Root.new("chartdiv");
-    root.setThemes([am5themes_Animated.new(root)]);
-
-    let chart = root.container.children.push(
-      am5xy.XYChart.new(root, {
-        panX: true,
-        panY: true,
-        wheelX: "panX",
-        wheelY: "zoomX",
-      })
-    );
-
-    let xAxis = chart.xAxes.push(
-      am5xy.DateAxis.new(root, {
-        maxDeviation: 0.3,
-        baseInterval: { timeUnit: "day", count: 1 },
-        renderer: am5xy.AxisRendererX.new(root, {}),
-      })
-    );
-
-    let yAxis = chart.yAxes.push(
-      am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {}),
-      })
-    );
-
-    let series = chart.series.push(
-      am5xy.LineSeries.new(root, {
-        name: "Series",
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: "value",
-        valueXField: "date",
-        tooltip: am5.Tooltip.new(root, {
-          labelText: "{valueY}",
-        }),
-      })
-    );
-
-    series.data.setAll(chartData());
-
-    // Pie Chart
-    let pieRoot = am5.Root.new("piechartdiv");
-    pieRoot.setThemes([am5themes_Animated.new(pieRoot)]);
-
-    let pieChart = pieRoot.container.children.push(
-      am5percent.PieChart.new(pieRoot, {
-        layout: pieRoot.verticalLayout,
-      })
-    );
-
-    let pieSeries = pieChart.series.push(
-      am5percent.PieSeries.new(pieRoot, {
-        valueField: "value",
-        categoryField: "category",
-      })
-    );
-
-    pieSeries.data.setAll(pieChartData());
-
-    return () => {
-      root.dispose();
-      pieRoot.dispose();
-    };
-  });
+  
 
   return (
     <div class="dashboard">
@@ -184,16 +202,36 @@ const Dashboard = () => {
             </div>
           )}
 
-          <div class="charts-container">
-            <div class="chart-card">
-              <h3>Penggunaan LMS</h3>
-              <div id="chartdiv"></div>
+          {showChartModal() && (
+            <div class="modal">
+              <div class="modal-content">
+                <h3>Pilih Chart</h3>
+                <select onChange={(e) => setNewChart(e.target.value)} value={newChart()}>
+                  <option value="" disabled>Pilih Chart</option>
+                  {availableCharts().map(chart => (
+                    <option value={chart}>{chart}</option>
+                  ))}
+                </select>
+                <button onClick={addChart}>Tambah</button>
+                <button onClick={() => setShowChartModal(false)}>Batal</button>
+              </div>
             </div>
-            <div class="chart-card pie-chart">
-              <h3>Data Ekstrakurikuler</h3>
-              <div id="piechartdiv"></div>
-            </div>
+          )}
+
+          <div class="jarak2">
+            <button class="add-chart-button" onClick={() => setShowChartModal(true)}>+ Tambah Chart</button>
           </div>
+
+          <div class="charts-container">
+  {selectedCharts().map((chart, index) => (
+    <div class="chart-card" >
+      <h3>{chart} Chart</h3>
+      <div id={`${chart.toLowerCase()}ChartDiv-${index}`} style={{ width: "100%", height: "500px" }}></div>
+      <button onClick={() => removeChart(chart)}>Hapus</button>
+    </div>
+  ))}
+</div>
+
 
           <div class="table-card">
             <h3>Siswa Online</h3>
