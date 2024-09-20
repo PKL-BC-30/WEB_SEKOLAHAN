@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #F5F6FA;
 }
 
 .dashboard-header {
@@ -43,6 +42,10 @@
 .main-content {
   display: flex;
   flex: 1;
+}
+
+.Main-Ekstra{
+  background-color: #ffff;
 }
 
 .sidebar {

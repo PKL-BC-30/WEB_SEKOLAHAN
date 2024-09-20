@@ -203,4 +203,8 @@
     justify-content: flex-end;
     gap: 10px;
   }
+
+  .main-guru{
+    background-color: #ffff;
+  }
   
