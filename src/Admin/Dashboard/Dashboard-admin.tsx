@@ -141,35 +141,11 @@ const Dashboard = () => {
 
   return (
     <div class="dashboard">
-      <header class="dashboard-header">
-        <h1>Untitle</h1>
-        <div class="header-right">
-          <div class="notification">
-            <span>2</span>
-          </div>
-          <div class="user-info">
-            <div class="user-avatar"></div>
-            <span>PRIYONO</span>
-            <span class="user-role">Admin</span>
-          </div>
-        </div>
-      </header>
 
       <div class="main-content">
-        <nav class="sidebar">
-          <ul>
-            <li class="active">Dashboard</li>
-            <li>Data Siswa</li>
-            <li>Ekstrakurikuler</li>
-            <li>Data Guru</li>
-            <li>Transkrip Nilai</li>
-            <li>Jadwal</li>
-            <li class="settings">Pengaturan</li>
-            <li class="logout">Keluar</li>
-          </ul>
-        </nav>
 
-        <main>
+        <main class="main-Dash">
+          
             <div class="jarak1">
             <h2 class="dashboardText">Dashboard</h2>
             <button class="add-stat-button" onClick={() => setShowAddStatModal(true)}>+ Tambah Statistik</button>

@@ -79,43 +79,10 @@ const DataEkstrakulikuler = () => {
 
   return (
     <div class="data-ekstrakulikuler-dashboard">
-      <header class="dashboard-header">
-        <div class="left-section">
-          <h1>Untitle</h1>
-          <div class="search-bar">
-            <input type="text" placeholder="Search" />
-          </div>
-        </div>
-        <div class="right-section">
-          <div class="notification">6</div>
-          <select class="language-select">
-            <option>English</option>
-          </select>
-          <div class="user-info">
-            <div class="avatar">P</div>
-            <span>PRIYONO</span>
-            <span class="role">Admin</span>
-          </div>
-        </div>
-      </header>
 
       <div class="main-content">
-        <nav class="sidebar">
-          <ul>
-            <li>Dashboard</li>
-            <li>Data Siswa</li>
-            <li class="active">Ekstrakulikuler</li>
-            <li>Data Guru</li>
-            <li>Transkrip Nilai</li>
-            <li>Jadwal</li>
-          </ul>
-          <ul class="bottom-menu">
-            <li>Pengaturan</li>
-            <li class="logout">Keluar</li>
-          </ul>
-        </nav>
 
-        <main>
+        <main class="Main-Ekstra">
           <div class="content-header">
             <div class="action-buttons">
               <button class="add-ekstra">+ Ekstrakulikuler</button>

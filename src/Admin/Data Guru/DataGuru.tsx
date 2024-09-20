@@ -69,43 +69,10 @@ const DataGuru = () => {
 
   return (
     <div class="data-guru-dashboard">
-      <header class="dashboard-header">
-        <div class="left-section">
-          <h1>Untitle</h1>
-          <div class="search-bar">
-            <input type="text" placeholder="Search" />
-          </div>
-        </div>
-        <div class="right-section">
-          <div class="notification">2</div>
-          <select class="language-select">
-            <option>English</option>
-          </select>
-          <div class="user-info">
-            <div class="avatar">P</div>
-            <span>PRIYONO</span>
-            <span class="role">Admin</span>
-          </div>
-        </div>
-      </header>
 
       <div class="main-content">
-        <nav class="sidebar">
-          <ul>
-            <li>Dashboard</li>
-            <li>Data Siswa</li>
-            <li>Ekstrakurikuler</li>
-            <li class="active">Data Guru</li>
-            <li>Transkrip Nilai</li>
-            <li>Jadwal</li>
-          </ul>
-          <ul class="bottom-menu">
-            <li>Pengaturan</li>
-            <li class="logout">Keluar</li>
-          </ul>
-        </nav>
 
-        <main>
+        <main class="main-guru">
           <div class="content-header">
             <h2>Data Guru</h2>
             <div class="action-buttons">

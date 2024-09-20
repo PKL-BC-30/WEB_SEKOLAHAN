@@ -9,6 +9,9 @@ import IconPengaturan from '../../Admin/AssetAdmin/IconPengaturan.svg';
 import IconKeluar from '../../Admin/AssetAdmin/IconKeluar.svg';
 import IconJadwalPelajaran from '../../Admin/AssetAdmin/IconJadwalPelajaran.svg';
 import TranskripNilai from '../../Admin/TranskripNilai-admin/TranskripNilai';
+import Dashboard from '../Dashboard/Dashboard-admin';
+import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
+import DataGuru from '../Data Guru/DataGuru';
 
 const SideNavbar: Component = () => {
   const [activeItem, setActiveItem] = createSignal('Dashboard');
@@ -26,6 +29,15 @@ const SideNavbar: Component = () => {
     switch (activeItem()) {
       case 'Transkrip Nilai':
         return <TranskripNilai />;
+
+        case 'Dashboard':
+        return <Dashboard />;
+
+        case 'Ekstrakulikuler':
+        return <DataEkstrakulikuler />;
+
+        case 'Data Guru':
+          return <DataGuru />;
       // Add other cases for different menu items
       default:
         return <div>Content for {activeItem()} goes here</div>;
