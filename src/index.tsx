@@ -7,7 +7,8 @@ import { Router, Routes, Route } from '@solidjs/router';
 import App from './app';
 import Dashboard from './Admin/Dashboard/Dashboard-admin';
 import DataGuru from './Admin/Data Guru/DataGuru';
-import DataSiswa from './Admin/Data Ekstrakulikuler/DataEkstrakulikuler';
+import DataEkstrakurikuler from './Admin/Data Ekstrakulikuler/DataEkstrakulikuler';
+import JadwalPelajaran from './Admin/Jadwal Pelajaran/JadwalPelajaran';
 
 
 const root = document.getElementById('root');
@@ -25,8 +26,10 @@ render(
       <Routes>
         <Route path="/admin" element={<App />} />
          <Route path="/Dashboard-admin" element={<Dashboard />} />
-         <Route path="/DataSiswa-admin" element={<DataSiswa/>} />
+         <Route path="/DataEkstrakurikuler-admin" element={<DataEkstrakurikuler/>} />
          <Route path="/DataGuru-admin" element={<DataGuru/>} />
+         <Route path="/JadwalPelajaran-admin"element={<JadwalPelajaran/>}/>
+      
       </Routes>
 
     </Router>
