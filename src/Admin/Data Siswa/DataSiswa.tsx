@@ -230,10 +230,12 @@ const DetailView = (props: { className: string; onBack: () => void; students: St
     { field: 'noHp', headerName: 'NO HP', sortable: true, filter: true }
   ];
 
+  
+
   return (
     <div class="detail-view">
       <h2>{props.className}</h2>
-      <div class="ag-theme-alpine" style={{ height: '500px', width: '100%' }}>
+      <div class="ag-theme-alpine" style={{ height: '400px', width: '100%' }}>
         <AgGridSolid
           columnDefs={columnDefs}
           rowData={props.students}
@@ -310,10 +312,13 @@ export const DataSiswa = () => {
               className={selectedDetailClass() || ''}
               onBack={() => setSelectedDetailClass(null)}
               students={students()}
+              
             />
+            <div class="PlusSiswa">
             <CMSButton onClick={() => { setModalType('student'); setIsModalOpen(true); }}>
               + Siswa
             </CMSButton>
+            </div>
           </>
         }
       >
@@ -330,6 +335,7 @@ export const DataSiswa = () => {
             + Kelas
           </CMSButton>
         </div>
+
         <div class="class-grid">
           <For each={filteredClasses()}>
             {(classItem) => (

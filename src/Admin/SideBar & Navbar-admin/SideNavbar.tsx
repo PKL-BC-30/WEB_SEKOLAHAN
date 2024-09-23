@@ -14,6 +14,7 @@ import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
 import DataGuru from '../Data Guru/DataGuru';
 import JadwalPelajaran from '../Jadwal Pelajaran/JadwalPelajaran';
 import Profile from '../Profile/Profile-admin';
+import { DataSiswa } from '../Data Siswa/DataSiswa';
 
 const SideNavbar: Component = () => {
   const [activeItem, setActiveItem] = createSignal('Dashboard');
@@ -48,6 +49,9 @@ const SideNavbar: Component = () => {
         
         case 'Profile':
             return <Profile />;
+
+        case 'Data Siswa':
+          return <DataSiswa/>;
       // Add other cases for different menu items
       default:
         return <div class="content-Admin">Content for {activeItem()} goes here</div>;
