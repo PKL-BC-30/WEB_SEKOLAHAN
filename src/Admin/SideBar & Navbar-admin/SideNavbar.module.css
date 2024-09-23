@@ -2,7 +2,6 @@
     display: flex;
     height: 100vh;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevent scrolling on the container */
   }
  
   .sidebar {
@@ -75,15 +74,14 @@
   .mainContent {
     flex-grow: 1;
     background-color: #f5f6fa;
-    margin-left: 250px; /* Add left margin to account for fixed sidebar */
-    overflow-y: auto; /* Allow scrolling in main content */
-    height: 100vh;
+    padding: 20px;
   }
   
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
     background-color: #ffffff;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -151,10 +149,4 @@
   .userProfile span:last-of-type {
     color: #666;
     font-size: 12px;
-  }
-  
-  /* Add padding to account for fixed navbar */
-  .mainContent > *:not(.navbar) {
-    margin-top: 70px; /* Adjust based on navbar height */
-    padding: 20px;
   }
