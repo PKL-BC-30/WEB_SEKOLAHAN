@@ -11,6 +11,9 @@ import SideNavbar from './Admin/SideBar & Navbar-admin/SideNavbar';
 
 
 
+
+
+
 const root = document.getElementById('root');
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
@@ -24,11 +27,10 @@ render(
     <Router>
       
       <Routes>
-      <Route path="/Dashboard-admin" element={<SideNavbar/>} />
+        <Route path="/Dashboard-admin" element={<SideNavbar/>} />
         <Route path="/admin" element={<App />} />
-      
-         <Route path="/DataGuru-admin" element={<DataGuru/>} />
-         <Route path="/Profile-admin" element={<Profile/>} />
+        <Route path="/DataGuru-admin" element={<DataGuru/>} />
+        <Route path="/Profile-admin" element={<Profile/>} />
       </Routes>
 
     </Router>

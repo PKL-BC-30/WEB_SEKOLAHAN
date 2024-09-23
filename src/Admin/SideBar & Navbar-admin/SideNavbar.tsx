@@ -27,6 +27,7 @@ const SideNavbar: Component = () => {
 
   const renderContent = (): JSX.Element => {
     switch (activeItem()) {
+      
       case 'Transkrip Nilai':
         return <TranskripNilai />;
 
@@ -40,7 +41,7 @@ const SideNavbar: Component = () => {
           return <DataGuru />;
       // Add other cases for different menu items
       default:
-        return <div>Content for {activeItem()} goes here</div>;
+        return <div class="content-Admin">Content for {activeItem()} goes here</div>;
     }
   };
 
