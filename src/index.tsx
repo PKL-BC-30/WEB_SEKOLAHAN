@@ -9,7 +9,10 @@ import DataGuru from './Admin/Data Guru/DataGuru';
 import DataEkstrakurikuler from './Admin/Data Ekstrakulikuler/DataEkstrakulikuler';
 import Profile from './Admin/Profile/Profile-admin';
 import SideNavbar from './Admin/SideBar & Navbar-admin/SideNavbar';
-import { DataSiswa } from './Admin/Data Siswa/DataSiswa';
+import {DataSiswa}  from './Admin/Data Siswa/DataSiswa';
+
+
+
 
 
 
