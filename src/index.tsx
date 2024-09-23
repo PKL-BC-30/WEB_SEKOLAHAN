@@ -6,6 +6,8 @@ import { Router, Routes, Route } from '@solidjs/router';
 
 import App from './app';
 import DataGuru from './Admin/Data Guru/DataGuru';
+import DataEkstrakurikuler from './Admin/Data Ekstrakulikuler/DataEkstrakulikuler';
+import JadwalPelajaran from './Admin/Jadwal Pelajaran/JadwalPelajaran';
 import Profile from './Admin/Profile/Profile-admin';
 import SideNavbar from './Admin/SideBar & Navbar-admin/SideNavbar';
 
