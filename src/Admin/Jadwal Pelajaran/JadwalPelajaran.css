@@ -3,6 +3,8 @@
   flex-direction: column;
   height: 100vh;
   font-family: Arial, sans-serif;
+  margin-left: 265px;
+     margin-top: 50px;
 }
 
 .jp-navbar {
