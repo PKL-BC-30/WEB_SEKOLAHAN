@@ -1,6 +1,10 @@
 .data-guru-dashboard {
     font-family: Arial, sans-serif;
     background-color: #f0f2f5;
+    width: 1200px;
+    height: 50px;
+    margin-left: 265px;
+    margin-top: 55px;
   }
   
   .dashboard-header {
@@ -178,6 +182,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    z-index: 100;
   }
   
   .popup-content {

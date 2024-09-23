@@ -11,36 +11,16 @@ const Profile = () => {
 
   return (
     <div class="profile-admin-dashboard">
-      <aside class="profile-sidebar">
-        <h1>Untitle</h1>
-        <nav>
-          <ul>
-            <li>Dashboard</li>
-            <li>Data Siswa</li>
-            <li class="profile-active">Ekstrakulikuler</li>
-            <li>Data Guru</li>
-            <li>Transkrip Nilai</li>
-          </ul>
-        </nav>
-        <div class="profile-sidebar-footer">
-          <p>Lainnya</p>
-          <ul>
-            <li>Pengaturan</li>
-          </ul>
-        </div>
-      </aside>
+
       <main>
         <header class="profile-header">
           <h2>Admin Dashboard</h2>
-          <div class="profile-user-info">
-            <span class="profile-notification">6</span>
-            <span class="profile-language">🇬🇧</span>
-            <span class="profile-user-avatar">PRIYONO</span>
-          </div>
+    
         </header>
         <section class="profile-profile-card">
           <div class="profile-profile-header"></div>
           <div class="profile-profile-content">
+        
             <div class="profile-avatar"></div>
             <h3>Priyono</h3>
             <p>Admin</p>

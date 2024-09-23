@@ -1,7 +1,10 @@
 .data-ekstrakulikuler-dashboard {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  margin-top: 70px;
+    width: 1250px;
+    height: auto;
+    margin-left: 245px;
 }
 
 .dashboard-header {

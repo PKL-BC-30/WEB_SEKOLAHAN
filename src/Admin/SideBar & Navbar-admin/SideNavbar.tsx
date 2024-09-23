@@ -19,6 +19,8 @@ import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
 import JadwalPelajaran from '../Jadwal Pelajaran/JadwalPelajaran';
 import DataGuru from '../Data Guru/DataGuru';
 import TranskripNilai from '../../Admin/TranskripNilai-admin/TranskripNilai';
+import Profile from '../Profile/Profile-admin';
+import { DataSiswa } from '../Data Siswa/DataSiswa';
 
 const SideNavbar: Component = () => {
   const [activeItem, setActiveItem] = createSignal('Dashboard');
@@ -30,6 +32,13 @@ const SideNavbar: Component = () => {
     { name: 'Data Guru', icon: IconDataGuru, activeIcon: IconDataGuruWhite },
     { name: 'Transkrip Nilai', icon: IconTranskripNilai, activeIcon: IconTranskripNilaiWhite },
     { name: 'Jadwal Pelajaran', icon: IconJadwalPelajaran, activeIcon: IconJadwalPelajaranWhite },
+    { name: 'Dashboard', icon: IconDashboard },
+    { name: 'Data Siswa', icon: IconDataSiswa },
+    { name: 'Ekstrakulikuler', icon: IconEkstrakulikuler },
+    { name: 'Data Guru', icon: IconDataGuru },
+    { name: 'Transkrip Nilai', icon: IconTranskripNilai },
+    { name: 'Jadwal Pelajaran', icon: IconJadwalPelajaran },
+    { name: 'Profile' },
   ];
 
   const renderContent = (): JSX.Element => {
@@ -44,8 +53,30 @@ const SideNavbar: Component = () => {
         return <JadwalPelajaran />;
       case 'Transkrip Nilai':
         return <TranskripNilai />;
+      
+      case 'Transkrip Nilai':
+        return <TranskripNilai />;
+
+        case 'Dashboard':
+        return <Dashboard />;
+
+        case 'Ekstrakulikuler':
+        return <DataEkstrakulikuler />;
+
+        case 'Data Guru':
+          return <DataGuru />;
+
+        case 'Jadwal Pelajaran':
+            return <JadwalPelajaran />;
+        
+        case 'Profile':
+            return <Profile />;
+
+        case 'Data Siswa':
+          return <DataSiswa/>;
+      // Add other cases for different menu items
       default:
-        return <div>Content for {activeItem()} goes here</div>;
+        return <div class="content-Admin">Content for {activeItem()} goes here</div>;
     }
   };
 
