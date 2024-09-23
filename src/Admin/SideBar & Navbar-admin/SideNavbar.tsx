@@ -12,6 +12,8 @@ import TranskripNilai from '../../Admin/TranskripNilai-admin/TranskripNilai';
 import Dashboard from '../Dashboard/Dashboard-admin';
 import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
 import DataGuru from '../Data Guru/DataGuru';
+import JadwalPelajaran from '../Jadwal Pelajaran/JadwalPelajaran';
+import Profile from '../Profile/Profile-admin';
 
 const SideNavbar: Component = () => {
   const [activeItem, setActiveItem] = createSignal('Dashboard');
@@ -23,6 +25,7 @@ const SideNavbar: Component = () => {
     { name: 'Data Guru', icon: IconDataGuru },
     { name: 'Transkrip Nilai', icon: IconTranskripNilai },
     { name: 'Jadwal Pelajaran', icon: IconJadwalPelajaran },
+    { name: 'Profile' },
   ];
 
   const renderContent = (): JSX.Element => {
@@ -38,6 +41,12 @@ const SideNavbar: Component = () => {
 
         case 'Data Guru':
           return <DataGuru />;
+
+        case 'Jadwal Pelajaran':
+            return <JadwalPelajaran />;
+        
+        case 'Profile':
+            return <Profile />;
       // Add other cases for different menu items
       default:
         return <div>Content for {activeItem()} goes here</div>;
