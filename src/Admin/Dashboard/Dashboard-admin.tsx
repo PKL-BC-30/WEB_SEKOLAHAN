@@ -57,12 +57,12 @@ const Dashboard = () => {
   createEffect(() => {
     selectedCharts().forEach((chartType, index) => {
       const chartDivId = `${chartType.toLowerCase()}ChartDiv-${index}`;
-      
+
       // Line Chart
       if (chartType === 'Line') {
         let root = am5.Root.new(chartDivId);
         root.setThemes([am5themes_Animated.new(root)]);
-  
+
         let chart = root.container.children.push(
           am5xy.XYChart.new(root, {
             panX: true,
@@ -71,7 +71,7 @@ const Dashboard = () => {
             wheelY: "zoomX",
           })
         );
-  
+
         let xAxis = chart.xAxes.push(
           am5xy.DateAxis.new(root, {
             maxDeviation: 0.3,
@@ -79,13 +79,13 @@ const Dashboard = () => {
             renderer: am5xy.AxisRendererX.new(root, {}),
           })
         );
-  
+
         let yAxis = chart.yAxes.push(
           am5xy.ValueAxis.new(root, {
             renderer: am5xy.AxisRendererY.new(root, {}),
           })
         );
-  
+
         let series = chart.series.push(
           am5xy.LineSeries.new(root, {
             name: "Series",
@@ -98,47 +98,47 @@ const Dashboard = () => {
             }),
           })
         );
-  
+
         series.data.setAll([
           { date: new Date(2022, 0, 1).getTime(), value: 20 },
           { date: new Date(2022, 1, 1).getTime(), value: 35 },
           { date: new Date(2022, 2, 1).getTime(), value: 64366 },
         ]);
-  
+
         return () => root.dispose();
       }
-  
+
       // Pie or Donut Chart
       if (chartType === 'Pie' || chartType === 'Donut') {
         let root = am5.Root.new(chartDivId);
         root.setThemes([am5themes_Animated.new(root)]);
-  
+
         let chart = root.container.children.push(
           am5percent.PieChart.new(root, {
             layout: root.verticalLayout,
             innerRadius: chartType === 'Donut' ? am5.percent(50) : 0, // Set inner radius for donut chart
           })
         );
-  
+
         let series = chart.series.push(
           am5percent.PieSeries.new(root, {
             valueField: "value",
             categoryField: "category",
           })
         );
-  
+
         series.data.setAll([
           { category: "Shopping", value: 50 },
           { category: "Food", value: 10 },
           { category: "Entertainment", value: 20 },
           { category: "Hobby", value: 20 },
         ]);
-  
+
         return () => root.dispose();
       }
     });
   });
-  
+
 
   return (
     <div class="dashboard">
@@ -146,11 +146,11 @@ const Dashboard = () => {
       <div class="main-content">
 
         <main class="main-Dash">
-          
-            <div class="jarak1">
+
+          <div class="jarak1">
             <h2 class="dashboardText">Dashboard</h2>
             <button class="add-stat-button" onClick={() => setShowAddStatModal(true)}>+ Tambah Statistik</button>
-            </div>
+          </div>
 
           <div class="stats-grid">
             {selectedStats().map(({ title, value }) => (
@@ -200,14 +200,14 @@ const Dashboard = () => {
           </div>
 
           <div class="charts-container">
-  {selectedCharts().map((chart, index) => (
-    <div class="chart-card" >
-      <h3>{chart} Chart</h3>
-      <div id={`${chart.toLowerCase()}ChartDiv-${index}`} style={{ width: "100%", height: "500px" }}></div>
-      <button onClick={() => removeChart(chart)}>Hapus</button>
-    </div>
-  ))}
-</div>
+            {selectedCharts().map((chart, index) => (
+              <div class="chart-card" >
+                <h3>{chart} Chart</h3>
+                <div id={`${chart.toLowerCase()}ChartDiv-${index}`} style={{ width: "100%", height: "500px" }}></div>
+                <button onClick={() => removeChart(chart)}>Hapus</button>
+              </div>
+            ))}
+          </div>
 
 
           <div class="table-card">

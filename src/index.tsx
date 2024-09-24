@@ -34,6 +34,7 @@ render(
          <Route path="/DataGuru-admin" element={<DataGuru/>} />
          <Route path="/Profile-admin" element={<Profile/>} />
          <Route path="/DataSiswa-admin" element={<DataSiswa/>} />
+         <Route path="/DataGuru-admin" element={<DataGuru/>} />
       </Routes>
 
     </Router>
