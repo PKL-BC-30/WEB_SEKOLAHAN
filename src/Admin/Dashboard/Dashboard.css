@@ -1,3 +1,246 @@
-.p{
-  color:white;
+
+
+
+
+.dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #ffff;
+  margin-top: 70px;
+  width: 250px;
+  height: auto;
+  margin-left: 245px;
 }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.notification {
+  margin-right: 1rem;
+}
+
+.notification span {
+  background-color: #ef4444;
+  color: white;
+  border-radius: 9999px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+select {
+  margin-right: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 2rem;
+  height: 2rem;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+}
+
+.user-role {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.main-content {
+  display: flex;
+}
+
+.sidebar {
+  width: 16rem;
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+.sidebar ul {
+  padding: 1rem;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.sidebar li.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.sidebar li.settings {
+  margin-top: 2rem;
+}
+
+.sidebar li.logout {
+  color: #ef4444;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+main h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.jarak1 {
+  display: flex;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.charts-container {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  flex: 1;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.chart-card.pie-chart {
+  width: 33.333%;
+  margin-left: 1rem;
+}
+
+.chart-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#chartdiv, #piechartdiv {
+  width: 100%;
+  height: 300px;
+}
+
+.table-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.table-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+th {
+  font-weight: bold;
+}
+
+.status-online {
+  background-color: #10b981;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.add-stat-button {
+background-color: #000000;
+color: white;
+border: none;
+width: 150px;
+height: 45px;
+text-align: center;
+cursor: pointer;
+border-radius: 5px;
+font-size: 14px;
+margin-left: 900px;
+}
+
+.add-stat-button:hover {
+background-color: #0056b3;
+}
+
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 100;
+}
+
+.modal-content {
+background: white;
+padding: 20px;
+border-radius: 8px;
+width: 300px;
+text-align: center;
+}
+
+.modal-content button {
+margin: 10px;
+}
+
+.main-Dash{
+background-color: #ffff;
+}
+
