@@ -5,41 +5,51 @@ import IconDataSiswa from '../../Admin/AssetAdmin/IconDataSiswa.svg';
 import IconEkstrakulikuler from '../../Admin/AssetAdmin/IconEkstrakulikuler.svg';
 import IconDataGuru from '../../Admin/AssetAdmin/IconDataGuru.svg';
 import IconTranskripNilai from '../../Admin/AssetAdmin/IconTranskripNilai.svg';
+import IconKalender from '../../Admin/AssetAdmin/iconKalender.svg'
 import IconPengaturan from '../../Admin/AssetAdmin/IconPengaturan.svg';
 import IconKeluar from '../../Admin/AssetAdmin/IconKeluar.svg';
 import IconJadwalPelajaran from '../../Admin/AssetAdmin/IconJadwalPelajaran.svg';
+import IconDashboardWhite from '../../Admin/AssetAdmin/IconDashboard-White.svg';
+import IconDataSiswaWhite from '../../Admin/AssetAdmin/IconDataSiswa-White.svg';
+import IconEkstrakulikulerWhite from '../../Admin/AssetAdmin/IconEkstrakulikuler-White.svg';
+import IconDataGuruWhite from '../../Admin/AssetAdmin/IconDataGuru-White.svg';
+import IconTranskripNilaiWhite from '../../Admin/AssetAdmin/iconTranskripNilai-White.svg';
+import IconJadwalPelajaranWhite from '../../Admin/AssetAdmin/iconJadwalPelajaran-White.svg';
+import IconKalenderWhite from '../../Admin/AssetAdmin/iconKalender-White.svg'
 import TranskripNilai from '../../Admin/TranskripNilai-admin/TranskripNilai';
 import Dashboard from '../Dashboard/Dashboard-admin';
 import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
 import DataGuru from '../Data Guru/DataGuru';
+import JadwalPelajaran from '../Jadwal Pelajaran/JadwalPelajaran';
+import { DataSiswa } from '../Data Siswa/DataSiswa';
 
 const SideNavbar: Component = () => {
   const [activeItem, setActiveItem] = createSignal('Dashboard');
 
   const menuItems = [
-    { name: 'Dashboard', icon: IconDashboard },
-    { name: 'Data Siswa', icon: IconDataSiswa },
-    { name: 'Ekstrakulikuler', icon: IconEkstrakulikuler },
-    { name: 'Data Guru', icon: IconDataGuru },
-    { name: 'Transkrip Nilai', icon: IconTranskripNilai },
-    { name: 'Jadwal Pelajaran', icon: IconJadwalPelajaran },
+    { name: 'Dashboard', icon: IconDashboard, activeIcon: IconDashboardWhite },
+    { name: 'Data Siswa', icon: IconDataSiswa, activeIcon: IconDataSiswaWhite },
+    { name: 'Ekstrakulikuler', icon: IconEkstrakulikuler, activeIcon: IconEkstrakulikulerWhite },
+    { name: 'Data Guru', icon: IconDataGuru, activeIcon: IconDataGuruWhite },
+    { name: 'Transkrip Nilai', icon: IconTranskripNilai, activeIcon: IconTranskripNilaiWhite },
+    { name: 'Jadwal Pelajaran', icon: IconJadwalPelajaran, activeIcon: IconJadwalPelajaranWhite },
+    { name: 'kalender', icon: IconKalender, activeIcon: IconKalenderWhite },
   ];
 
   const renderContent = (): JSX.Element => {
     switch (activeItem()) {
-      
       case 'Transkrip Nilai':
         return <TranskripNilai />;
-
-        case 'Dashboard':
+      case 'Dashboard':
         return <Dashboard />;
-
-        case 'Ekstrakulikuler':
+      case 'Ekstrakulikuler':
         return <DataEkstrakulikuler />;
-
-        case 'Data Guru':
-          return <DataGuru />;
-      // Add other cases for different menu items
+      case 'Data Guru':
+        return <DataGuru />;
+      case 'Jadwal Pelajaran':
+        return <JadwalPelajaran />;
+      case 'Data Siswa':
+        return < DataSiswa/>;
       default:
         return <div class="content-Admin">Content for {activeItem()} goes here</div>;
     }
@@ -61,7 +71,10 @@ const SideNavbar: Component = () => {
                     setActiveItem(item.name);
                   }}
                 >
-                  <img src={item.icon} alt={item.name} />
+                  <img 
+                    src={activeItem() === item.name ? item.activeIcon : item.icon} 
+                    alt={item.name} 
+                  />
                   {item.name}
                 </a>
               </li>

@@ -84,62 +84,25 @@ const JadwalPelajaran = () => {
             />
           </div>
         ))}
-            <div class="jp-edit-popup-actions">
-                <button onClick={() => onSave(editData())} class="jp-save-button">Simpan</button>
-                <button onClick={onClose} class="jp-cancel-button">Batal</button>
-            </div>
+        <div class="jp-edit-popup-actions">
+          <button onClick={() => onSave(editData())} class="jp-save-button">Simpan</button>
+          <button onClick={onClose} class="jp-cancel-button">Batal</button>
+        </div>
       </div>
     );
   };
 
   return (
     <div class="jp-container">
-      <nav class="jp-navbar">
-        <div class="jp-navbar-left">
-          <h1 class="jp-title">Untitle</h1>
-          <div class="jp-search-container">
-            <input type="text" placeholder="Search" class="jp-search" />
-          </div>
-        </div>
-        <div class="jp-navbar-right">
-          <div class="jp-language-selector">
-            <img src="src\Admin\Image\indonesia flag.png" alt="English" class="jp-flag-icon" />
-            <span>Indonesia</span>
-          </div>
-          <div class="jp-user-info">
-            <img src="src\Admin\Image\WhatsApp Image 2024-07-06 at 23.11.40_4254b5ff.jpg" alt="User" class="jp-user-avatar" />
-            <div class="jp-user-details">
-              <span class="jp-user-name">PRIYONO</span>
-              <span class="jp-user-role">Admin</span>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       <div class="jp-main-container">
-        <aside class="jp-sidebar">
-          <ul class="jp-sidebar-menu">
-            <li class="jp-sidebar-item">Dashboard</li>
-            <li class="jp-sidebar-item">Data Siswa</li>
-            <li class="jp-sidebar-item">Ekstrakurikuler</li>
-            <li class="jp-sidebar-item">Data Guru</li>
-            <li class="jp-sidebar-item">Transkrip Nilai</li>
-            <li class="jp-sidebar-item jp-active">Jadwal Pelajaran</li>
-          </ul>
-          <div class="jp-sidebar-footer">
-            <ul class="jp-sidebar-menu">
-              <li class="jp-sidebar-item">Pengaturan</li>
-              <li class="jp-sidebar-item jp-logout">Keluar</li>
-            </ul>
-          </div>
-        </aside>
-
         <main class="jp-main-content">
           <h2 class="jp-page-title">Jadwal Pelajaran</h2>
-        <div class="jp-class-select-container">
-            <select 
+
+          {/* Class and Major selection */}
+          <div class="jp-class-select-container">
+            <select
               class="jp-class-select"
-              value={selectedClass()} 
+              value={selectedClass()}
               onChange={handleClassSelect}
             >
               <option value="">Pilih Kelas</option>
@@ -157,55 +120,57 @@ const JadwalPelajaran = () => {
               <option value="MIPA">MIPA</option>
               <option value="IPS">IPS</option>
               <option value="Bahasa">Bahasa</option>
-              {/* Tambahkan jurusan lainnya sesuai kebutuhan */}
             </select>
           </div>
 
-          {selectedClass() && (
-            <div class="jp-subclass-container">
-              {['A', 'B', 'C', 'D', 'E', 'F'].map(subClass => (
-                <button 
-                  class={`jp-subclass-button ${selectedSubClass() === subClass ? 'jp-subclass-active' : ''}`}
-                  onClick={() => handleSubClassSelect(subClass)}
-                >
-                  {selectedClass()} {subClass}
-                </button>
-              ))}
-            </div>
-          )}
-
-          {selectedSubClass() && (
-            <div class="jp-schedule-container" style={{ overflow: 'auto' }}>
-              <h3 class="jp-schedule-title">JADWAL PELAJARAN {selectedClass()} {selectedSubClass()}</h3>
-              <p class="jp-schedule-subtitle">Tahun Ajaran 2023/2024</p>
-              <div style={{ height: '400px', width: '100%' }}>
-                <AgGrid
-                  class="ag-theme-alpine"
-                  columnDefs={columnDefs()}
-                  rowData={rowData()}
-                />
+          {/* Only show subclasses and schedule if both class and major are selected */}
+          {selectedClass() && selectedMajor() && (
+            <>
+              <div class="jp-subclass-container">
+                {['A', 'B', 'C', 'D', 'E', 'F'].map(subClass => (
+                  <button
+                    class={`jp-subclass-button ${selectedSubClass() === subClass ? 'jp-subclass-active' : ''}`}
+                    onClick={() => handleSubClassSelect(subClass)}
+                  >
+                    {selectedClass()} {subClass}
+                  </button>
+                ))}
               </div>
-            </div>
-          )}
 
-          {showEditPopup() && (
-            <div class="jp-popup-overlay">
-              <EditPopup
-                row={editingRow()}
-                onSave={handleSave}
-                onClose={() => setShowEditPopup(false)}
-              />
-            </div>
-          )}
+              {selectedSubClass() && (
+                <div class="jp-schedule-container" style={{ overflow: 'auto' }}>
+                  <h3 class="jp-schedule-title">JADWAL PELAJARAN {selectedClass()} {selectedSubClass()}</h3>
+                  <p class="jp-schedule-subtitle">Tahun Ajaran 2023/2024</p>
+                  <div style={{ height: '400px', width: '100%' }}>
+                    <AgGrid
+                      class="ag-theme-alpine"
+                      columnDefs={columnDefs()}
+                      rowData={rowData()}
+                    />
+                  </div>
+                </div>
+              )}
 
-          {!selectedSubClass() && selectedClass() && (
-            <div class="jp-no-data">
-              <img src="src/Admin/Image/download__47_-removebg-preview 1.png" alt="No Data" class="jp-no-data-icon" />
-              <p class="jp-no-data-text">Silakan pilih subkelas</p>
-            </div>
+              {!selectedSubClass() && (
+                <div class="jp-no-data">
+                  <img src="src/Admin/Image/download__47_-removebg-preview 1.png" alt="No Data" class="jp-no-data-icon" />
+                  <p class="jp-no-data-text">Silakan pilih subkelas</p>
+                </div>
+              )}
+            </>
           )}
         </main>
       </div>
+
+      {showEditPopup() && (
+        <div class="jp-popup-overlay">
+          <EditPopup
+            row={editingRow()}
+            onSave={handleSave}
+            onClose={() => setShowEditPopup(false)}
+          />
+        </div>
+      )}
     </div>
   );
 };
