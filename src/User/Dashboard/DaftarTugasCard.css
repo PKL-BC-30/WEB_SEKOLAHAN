@@ -1,0 +1,94 @@
+.task-card {
+    max-height: 200px;
+    overflow-y: hidden;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.task-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-card__title {
+    margin: 0;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.lihat-semua-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #E2E9FB;
+    color: #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.task-card__group {
+    margin-top: 20px;
+}
+
+.task-card__group h3 {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.task-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-card__item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.task-card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-card__item h3 {
+    margin: 0 0 5px 0; /* Small margin below the title */
+    font-size: 14px;
+    color: #333;
+}
+
+.task-card__time-date {
+    display: flex;
+    justify-content: space-between;
+    gap: 390px; /* Add some space between time and date */
+}
+
+.task-card__item p {
+    margin: 0; /* Remove margin for paragraphs */
+    font-size: 12px;
+    color: #555;
+}
+
+.task-card__item--completed h3 {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-card__item--missed h3 {
+    color: red;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+    align-self: center;
+}
