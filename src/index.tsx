@@ -5,11 +5,8 @@ import { render } from 'solid-js/web';
 import { Router, Routes, Route } from '@solidjs/router';
 
 import App from './app';
-import DataGuru from './Admin/Data Guru/DataGuru';
-import DataEkstrakurikuler from './Admin/Data Ekstrakulikuler/DataEkstrakulikuler';
-import Profile from './Admin/Profile/Profile-admin';
 import SideNavbar from './Admin/SideBar & Navbar-admin/SideNavbar';
-import {DataSiswa}  from './Admin/Data Siswa/DataSiswa';
+import DashboardUser from './User/Dashboard/DashboardUser';
 
 
 
@@ -31,10 +28,8 @@ render(
       <Routes>
       <Route path="/Dashboard-admin" element={<SideNavbar/>} />
         <Route path="/admin" element={<App />} />     
-         <Route path="/DataGuru-admin" element={<DataGuru/>} />
-         <Route path="/Profile-admin" element={<Profile/>} />
-         <Route path="/DataSiswa-admin" element={<DataSiswa/>} />
-         <Route path="/DataGuru-admin" element={<DataGuru/>} />
+
+        <Route path="/Dashboard-user" element={<DashboardUser/>} />
       </Routes>
 
     </Router>

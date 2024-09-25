@@ -71,6 +71,7 @@ const Sidebar = () => {
         <input type="text" placeholder="Cari.." />
       </div>
       <div class="sidebar-content">
+        <div class="sidebar-menu">
         <div class="pembelajaran" onclick={handleClickDashboard}>
           <img src={isDashboardActive ? bukubold : buku} alt="Dashboard" />
           <h4 style={{ color: isDashboardActive ? '#000000' : '#646464', 'font-weight': isDashboardActive ? 'bold' : 'normal' }}>Dashboard</h4>
@@ -108,6 +109,7 @@ const Sidebar = () => {
           <h4 style={{ color: isEkstrakurikulerActive ? '#000000' : '#646464', 'font-weight': isEkstrakurikulerActive ? 'bold' : 'normal' }}>
             Ekstrakurikuler
           </h4>
+          </div>
         </div>
 
         <div class="other">

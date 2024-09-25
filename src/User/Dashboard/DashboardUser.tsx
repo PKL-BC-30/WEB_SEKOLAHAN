@@ -14,7 +14,7 @@ const Dashboard = () => {
       <Sidebar />
       <Navbar />
       <div class="dashboard-user-main-content">
-        <h1>Proses Pengerjaan Tugas</h1>
+        <h1 class="H1">Proses Pengerjaan Tugas</h1>
 
         <div class="dashboard-group-1">
           <div class="pengumuman">

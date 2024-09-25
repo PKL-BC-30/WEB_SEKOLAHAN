@@ -16,8 +16,8 @@
 }
 
 .searchbar {
-    margin-top: 45px;
-    margin-left: 22px;
+    margin-top: -640px;
+    margin-left: 15px;
     border: 2px solid #ECECEC;
     border-radius: 10px;
     width: 200px;
@@ -215,4 +215,8 @@
 .other div {
     display: flex; 
     align-items: center; 
+}
+
+.sidebar-menu{
+    margin-top: -690px;
 }
