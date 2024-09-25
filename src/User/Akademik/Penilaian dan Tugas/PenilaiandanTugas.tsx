@@ -1,7 +1,7 @@
 import { For } from 'solid-js';
 import styles from './PenilaiandanTugas.module.css';
-import tugasIcon from '../img/task.svg';
-import doneIcon from '../img/done.svg';
+import tugasIcon from '../../img/task.svg';
+import doneIcon from '../../img/done.svg';
 import Navbar from '../../Navbar/navbar';
 import Sidebar from '../../Sidebar/sidebar';
 

@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import { useNavigate, useLocation } from "@solidjs/router";
 import buku from '../img/dashboard.svg';
 import bukubold from '../img/bookbold.svg';
 import akademik from '../img/akademik.svg';
@@ -12,7 +13,6 @@ import eskul from '../img/eskul.svg';
 import eskulbold from '../img/eskulbold.svg';
 import line from '../img/line.svg';
 import search from '../img/search-normals.svg';
-import { useNavigate, useLocation } from "@solidjs/router";
 import './sidebar.css';
 
 const Sidebar = () => {
@@ -35,22 +35,22 @@ const Sidebar = () => {
 
   const handleClickAbsensi = () => {
     setAbsensiActive(true);
-    navigate('/absen');
+    navigate('/Absensi-user');
   };
 
   const handleClickDashboard = () => {
     setAbsensiActive(false);
     setIsActive(false);
-    navigate('/dashboard');
+    navigate('/Dashboard-user');
   };
 
   const handleClickEkstrakurikuler = () => {
-    navigate('/eskul');
+    navigate('/Ekstra-user');
   };
 
   // Determine if specific routes are active
-  const isAbsensiRouteActive = location.pathname === '/absen';
-  const isDashboardActive = location.pathname === '/dashboard';
+  const isAbsensiRouteActive = location.pathname === '/Absensi-user';
+  const isDashboardActive = location.pathname === '/Dashboard-user';
   const isEkstrakurikulerActive = location.pathname === '/eskul';
 
   // Check if any of the academic routes are active
@@ -89,9 +89,9 @@ const Sidebar = () => {
             <img src={line} class="line" alt="Line" />
             <div class="options">
               <ul>
-                <li><a href="/jadwal">Jadwal Pelajaran</a></li>
-                <li><a href="/penilaiandantugas">Tugas dan Penilaian</a></li>
-                <li><a href="/nilai">Transkrip Nilai</a></li>
+                <li><a href="/Jadwal-user">Jadwal Pelajaran</a></li>
+                <li><a href="/Penilaian&Tugas-user">Tugas dan Penilaian</a></li>
+                <li><a href="/TranskripNilai-user">Transkrip Nilai</a></li>
               </ul>
             </div>
           </div>

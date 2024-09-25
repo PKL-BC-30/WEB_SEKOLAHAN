@@ -36,6 +36,7 @@ const Calendar = () => {
 
   return (
     <div class={styles.calendar}>
+      <div class={styles.calendarBungkus}>
       <h1 class={styles.title}>Kalender</h1>
       <h2 class={styles.monthYear}>
         {monthNames[currentMonth().getMonth()]} {currentMonth().getFullYear()}
@@ -61,6 +62,7 @@ const Calendar = () => {
             </div>
           )}
         </For>
+      </div>
       </div>
     </div>
   );

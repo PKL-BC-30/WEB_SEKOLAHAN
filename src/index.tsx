@@ -6,7 +6,15 @@ import { Router, Routes, Route } from '@solidjs/router';
 
 import App from './app';
 import SideNavbar from './Admin/SideBar & Navbar-admin/SideNavbar';
+
+//user
 import DashboardUser from './User/Dashboard/DashboardUser';
+import Absensi from './User/Absensi/absen';
+import Penanggalan from './User/Kalender/calendar';
+import Jadwal from './User/Akademik/Jadwal Pelajaran/jadwal';
+import Tugas from './User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
+import TranscriptGrades from './User/Akademik/Transkrip Nilai/TranskripNilai';
+
 
 
 
@@ -30,6 +38,12 @@ render(
         <Route path="/admin" element={<App />} />     
 
         <Route path="/Dashboard-user" element={<DashboardUser/>} />
+        <Route path="/Absensi-user" element={<Absensi/>} />
+        <Route path="/Kalender-user" element={<Penanggalan/>} />
+        <Route path="/Jadwal-user" element={<Jadwal/>} />
+        <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
+        <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
+        
       </Routes>
 
     </Router>

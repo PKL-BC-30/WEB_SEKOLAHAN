@@ -9,7 +9,7 @@ function Card({ title, progress, imgSrc }) {
             <img src={imgSrc} alt={title} class="card-image" />
             <div class="card-content">
                 <div class="header">
-                    <img src={Toga} alt="icon" class="header-icon" /> Muatan Nasional        </div>
+                    <img src={Toga} alt="icon" class="header-icon" /> Muatan Nasional </div>
                 <div class="title">{title}</div>
                 <div class="progressBarContainer">
                     <div class="progressBar" style={{ width: '${progress}%' }} />
