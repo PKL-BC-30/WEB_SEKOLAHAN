@@ -1,6 +1,5 @@
 import { Component } from 'solid-js';
 import Navbar from '../../Navbar/Navbar';
-import footer from '../../Footer/Footer';
 import './DetailBerita.css';
 import Footer from '../../Footer/Footer';
 
