@@ -6,6 +6,7 @@ import { Router, Routes, Route } from '@solidjs/router';
 
 import App from './app';
 import SideNavbar from './Wb_Sekolahan/Admin/SideBar & Navbar-admin/SideNavbar';
+import PemerintahDaerah from './WB_Pemerintahan/User/Pemerintah Daerah/PemerintahDaerah';
 
 //user
 import DashboardUser from './Wb_Sekolahan/User/Dashboard/DashboardUser';
@@ -14,6 +15,7 @@ import Penanggalan from './Wb_Sekolahan/User/Kalender/calendar';
 import Jadwal from './Wb_Sekolahan/User/Akademik/Jadwal Pelajaran/jadwal';
 import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
+
 
 
 
@@ -43,7 +45,7 @@ render(
         <Route path="/Jadwal-user" element={<Jadwal/>} />
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
-        
+        <Route path="/PemerintahDaerah-user" element={<PemerintahDaerah/>} />
       </Routes>
 
     </Router>
