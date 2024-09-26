@@ -16,7 +16,7 @@ import IconDataGuruWhite from '../../Admin/AssetAdmin/IconDataGuru-White.svg';
 import IconTranskripNilaiWhite from '../../Admin/AssetAdmin/iconTranskripNilai-White.svg';
 import IconJadwalPelajaranWhite from '../../Admin/AssetAdmin/iconJadwalPelajaran-White.svg';
 import IconKalenderWhite from '../../Admin/AssetAdmin/iconKalender-White.svg'
-import TranskripNilai from '../../Admin/TranskripNilai-admin/TranskripNilai';
+import TranskripNilai from '../TranskripNilai-admin/TranskripNilai';
 import Dashboard from '../Dashboard/Dashboard-admin';
 import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
 import DataGuru from '../Data Guru/DataGuru';

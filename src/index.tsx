@@ -5,15 +5,15 @@ import { render } from 'solid-js/web';
 import { Router, Routes, Route } from '@solidjs/router';
 
 import App from './app';
-import SideNavbar from './Admin/SideBar & Navbar-admin/SideNavbar';
+import SideNavbar from './Wb_Sekolahan/Admin/SideBar & Navbar-admin/SideNavbar';
 
 //user
-import DashboardUser from './User/Dashboard/DashboardUser';
-import Absensi from './User/Absensi/absen';
-import Penanggalan from './User/Kalender/calendar';
-import Jadwal from './User/Akademik/Jadwal Pelajaran/jadwal';
-import Tugas from './User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
-import TranscriptGrades from './User/Akademik/Transkrip Nilai/TranskripNilai';
+import DashboardUser from './Wb_Sekolahan/User/Dashboard/DashboardUser';
+import Absensi from './Wb_Sekolahan/User/Absensi/absen';
+import Penanggalan from './Wb_Sekolahan/User/Kalender/calendar';
+import Jadwal from './Wb_Sekolahan/User/Akademik/Jadwal Pelajaran/jadwal';
+import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
+import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
 
 
 

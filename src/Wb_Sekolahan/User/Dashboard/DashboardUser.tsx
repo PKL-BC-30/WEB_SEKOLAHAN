@@ -4,8 +4,8 @@ import Kalender from '../Kalender/KalenderCard';
 import './DashboardUser.css';
 import Mapel from './MapelCard';
 import Jadwal from '../Akademik/Jadwal Pelajaran/JadwalCard';
-import Pengumuman from '../Dashboard/AnnouncementCard';
-import Tugas from '../Dashboard/DaftarTugasCard';
+import Pengumuman from './AnnouncementCard';
+import Tugas from './DaftarTugasCard';
 
 
 const Dashboard = () => {
