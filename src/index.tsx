@@ -7,7 +7,6 @@ import { Router, Routes, Route } from '@solidjs/router';
 import App from './app';
 //SEKOLAHAN
 import SideNavbar from './Wb_Sekolahan/Admin/SideBar & Navbar-admin/SideNavbar';
-import PemerintahDaerah from './WB_Pemerintahan/User/Pemerintah Daerah/PemerintahDaerah';
 
 //user
 import DashboardUser from './Wb_Sekolahan/User/Dashboard/DashboardUser';
@@ -21,6 +20,8 @@ import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/Trans
 import Navbar from './WB_Pemerintahan/User/Navbar/Navbar';
 import Footer from './WB_Pemerintahan/User/Footer/Footer';
 import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
+import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
+import ProfileDaerah from './WB_Pemerintahan/User/Profile Daerah/ProfileDaerah';
 
 
 
@@ -57,7 +58,8 @@ render(
 
         <Route path="/Footer" element={<Footer/>}/>
         <Route path="/DetailBerita-user" element={<DetailBerita/>}/>
-        
+        <Route path="/ProfileDaerah-user" element={<ProfileDaerah/>} />
+
       </Routes>
 
     </Router>

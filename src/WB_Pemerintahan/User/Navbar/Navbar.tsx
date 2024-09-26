@@ -16,7 +16,7 @@ const Navbar: Component = () => {
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Informasi&layanan.svg" alt="Informasi & Layanan" />
           Informasi & Layanan
         </a>
-        <a href="/profil">
+        <a href="/ProfileDaerah-user">
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Profile.svg" alt="Profil" />
           Profil
         </a>

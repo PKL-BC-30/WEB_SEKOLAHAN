@@ -1,30 +1,12 @@
 import { Component } from 'solid-js';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import './PemerintahDaerah.css';
 
 const PemerintahDaerah: Component = () => {
   return (
     <div class="pemerintah-daerah-page">
-      <header>
-        <div class="logo">
-          <img src="src\WB_Pemerintahan\User\Assets\logo bandung.png" alt="Bandung Logo" />
-          <span>Bandung</span>
-          <span>Portal Resmi Kota Bandung</span>
-        </div>
-        <nav>
-          <a href="#" class="active"><i class="icon-info"></i>Informasi & Layanan</a>
-          <a href="#"><i class="icon-profile"></i>Profil</a>
-          <a href="#"><i class="icon-government"></i>Pemerintah</a>
-          <a href="#"><i class="icon-complaint"></i>Pengaduan</a>
-        </nav>
-        <div class="header-actions">
-          <div class="search-bar">
-            <input type="search" placeholder="Cari sesuatu..." />
-            <button type="submit"><i class="icon-search"></i></button>
-          </div>
-          <button class="notification-button"><i class="icon-bell"></i></button>
-          <button class="profile-button">S</button>
-        </div>
-      </header>
+      <Navbar />
 
       <div class="hero-image">
         <img src="src\WB_Pemerintahan\User\Assets\Bandung Kota bener.png" alt="Gedung Sate Bandung" />
@@ -71,39 +53,7 @@ const PemerintahDaerah: Component = () => {
           <img src="src\WB_Pemerintahan\User\Assets\Struktur bandung pemerintah.png" alt="Bagan Struktur Organisasi Pemerintah Kota Bandung 2021" />
         </section>
       </main>
-
-      <footer>
-        <div class="footer-content">
-          <div class="footer-logo">
-            <img src="/path-to-bandung-logo.png" alt="Bandung Logo" />
-            <span>Bandung</span>
-            <p>Portal Resmi Kota Bandung</p>
-          </div>
-          <div class="footer-links">
-            <a href="#">Kebijakan Privasi</a>
-            <a href="#">Privasi Kami</a>
-            <a href="#">Kontak</a>
-            <a href="#">Bantuan & Masukan</a>
-          </div>
-          <div class="footer-address">
-            <p>Alamat :</p>
-            <p>Jl. Wastukencana Permatarasi No.126, Kec. Bandung Barat, Bandung, Jawa Barat 40117</p>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="social-media">
-            <a href="#"><i class="icon-linkedin"></i></a>
-            <a href="#"><i class="icon-facebook"></i></a>
-            <a href="#"><i class="icon-instagram"></i></a>
-            <a href="#"><i class="icon-twitter"></i></a>
-          </div>
-          <div class="footer-apps">
-            <img src="/path-to-bandung-app-logo.png" alt="Bandung App" />
-            <img src="/path-to-sipandu-app-logo.png" alt="Sipandu App" />
-          </div>
-          <p>2024 - All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
