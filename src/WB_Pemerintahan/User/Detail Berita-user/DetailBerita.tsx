@@ -1,7 +1,7 @@
 import { Component } from 'solid-js';
-import Navbar from '../../Navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
 import './DetailBerita.css';
-import Footer from '../../Footer/Footer';
+import Footer from '../Footer/Footer';
 
 const DetailBerita: Component = () => {
     return (

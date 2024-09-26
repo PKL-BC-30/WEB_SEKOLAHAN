@@ -16,8 +16,8 @@ import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/Penilaiandan
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
 
 //PEMERINTAHAN
-import Navbar from './WB_Pemerintahan/Navbar/Navbar';
-import Footer from './WB_Pemerintahan/Footer/Footer';
+import Navbar from './WB_Pemerintahan/User/Navbar/Navbar';
+import Footer from './WB_Pemerintahan/User/Footer/Footer';
 import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
 
 
