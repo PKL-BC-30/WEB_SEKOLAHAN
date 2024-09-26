@@ -5,8 +5,8 @@ import { render } from 'solid-js/web';
 import { Router, Routes, Route } from '@solidjs/router';
 
 import App from './app';
+//SEKOLAHAN
 import SideNavbar from './Wb_Sekolahan/Admin/SideBar & Navbar-admin/SideNavbar';
-
 //user
 import DashboardUser from './Wb_Sekolahan/User/Dashboard/DashboardUser';
 import Absensi from './Wb_Sekolahan/User/Absensi/absen';
@@ -14,6 +14,11 @@ import Penanggalan from './Wb_Sekolahan/User/Kalender/calendar';
 import Jadwal from './Wb_Sekolahan/User/Akademik/Jadwal Pelajaran/jadwal';
 import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
+
+//PEMERINTAHAN
+import Navbar from './WB_Pemerintahan/Navbar/Navbar';
+import Footer from './WB_Pemerintahan/Footer/Footer';
+import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
 
 
 
@@ -43,6 +48,11 @@ render(
         <Route path="/Jadwal-user" element={<Jadwal/>} />
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
+
+
+
+        <Route path="/Footer" element={<Footer/>}/>
+        <Route path="/DetailBerita-user" element={<DetailBerita/>}/>
         
       </Routes>
 
