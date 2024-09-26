@@ -61,7 +61,7 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
-                <button class="navbar-button" onClick={() => navigate('/kalender')}>
+                <button class="navbar-button" onClick={() => navigate('/kalender-user')}>
                     <img src={Kalender_Icon} />
                     Kalender
                     </button>

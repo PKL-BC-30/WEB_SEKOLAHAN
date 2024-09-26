@@ -20,8 +20,10 @@ import TranskripNilai from '../TranskripNilai-admin/TranskripNilai';
 import Dashboard from '../Dashboard/Dashboard-admin';
 import DataEkstrakulikuler from '../Data Ekstrakulikuler/DataEkstrakulikuler';
 import DataGuru from '../Data Guru/DataGuru';
-import JadwalPelajaran from '../Jadwal Pelajaran/JadwalPelajaran';
+import Kalender from '../Kalender/CalendarAdmin';
 import { DataSiswa } from '../Data Siswa/DataSiswa';
+import JadwalPelajaran from '../Jadwal Pelajaran/JadwalPelajaran';
+import CalendarAdmin from '../Kalender/CalendarAdmin';
 
 const SideNavbar: Component = () => {
   const [activeItem, setActiveItem] = createSignal('Dashboard');
@@ -49,7 +51,9 @@ const SideNavbar: Component = () => {
       case 'Jadwal Pelajaran':
         return <JadwalPelajaran />;
       case 'Data Siswa':
-        return < DataSiswa/>;
+        return < DataSiswa />;
+      case 'kalender':
+        return <CalendarAdmin />;
       default:
         return <div class="content-Admin">Content for {activeItem()} goes here</div>;
     }
@@ -71,9 +75,9 @@ const SideNavbar: Component = () => {
                     setActiveItem(item.name);
                   }}
                 >
-                  <img 
-                    src={activeItem() === item.name ? item.activeIcon : item.icon} 
-                    alt={item.name} 
+                  <img
+                    src={activeItem() === item.name ? item.activeIcon : item.icon}
+                    alt={item.name}
                   />
                   {item.name}
                 </a>
