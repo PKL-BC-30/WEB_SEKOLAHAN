@@ -24,7 +24,7 @@ const Navbar: Component = () => {
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Pemerintahan.svg" alt="Pemerintah" />
           Pemerintah
         </a>
-        <a href="/pengaduan">
+        <a href="/Pengaduan-user">
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Pengaduan.svg" alt="Pengaduan" />
           Pengaduan
         </a>
