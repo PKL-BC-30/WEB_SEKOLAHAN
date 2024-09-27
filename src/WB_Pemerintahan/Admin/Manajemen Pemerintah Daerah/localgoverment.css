@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .content {
-    margin-left: 40px;
+    margin-left: -1070px;
     flex-grow: 1;
-    padding: 80px 30px 30px 300px ;
+    padding: 80px 30px 30px 60px ;
     background-color: #ffffff;
 }
 
@@ -198,8 +198,6 @@ li {
     transition: background-color 0.3s ease;
     z-index: 10; 
 }
-
-
 
 .save-button:hover {
     background-color: #0056b3;

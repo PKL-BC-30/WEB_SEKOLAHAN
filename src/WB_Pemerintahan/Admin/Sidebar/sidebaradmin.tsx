@@ -36,11 +36,15 @@ const Sidebar = () => {
   const handleClickInfoPublik = () => {
     navigate('/newsannouncement');
   };
-  
+
 
   // Mendapatkan URL saat ini
   const isLocalGovernmentPage = location.pathname === "/ManajemenPemerintahDaerah-admin";
-const isNewsAnnouncementPage = location.pathname === "/newsannouncement" || location.pathname === "/newsannouncement/addnews"|| location.pathname === "/newsannouncement/adddigitalservice";
+  const isNewsAnnouncementPage = location.pathname === "/ManajemenBeritaPengumuman-admin" 
+  || location.pathname === "/TambahBerita-admin" 
+  || location.pathname === "/TambahLayanan-admin"
+  || location.pathname === "/EditBerita-admin"
+  || location.pathname === "/EditLayanan-admin";
 
 
   return (
@@ -93,7 +97,7 @@ const isNewsAnnouncementPage = location.pathname === "/newsannouncement" || loca
           class={`info ${isNewsAnnouncementPage ? "news-announcement-active" : ""}`} // Menambahkan kondisi aktif
           onclick={handleClickInfoPublik}
         >
-          <img src={isNewsAnnouncementPage? infoactive :info} alt="Info Publik" />
+          <img src={isNewsAnnouncementPage ? infoactive : info} alt="Info Publik" />
           <h4>Info Publik</h4>
         </div>
 

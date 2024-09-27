@@ -4,11 +4,12 @@
     margin-top: 0px;
     margin-left: 280px;
     height: 91px;
-    max-width: calc(100% - 280px);
-    min-width: 280px;
+    width: calc(100% - 280px);
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
     background-color: #FFFFFF;
 }
 
