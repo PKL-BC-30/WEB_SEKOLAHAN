@@ -1,7 +1,17 @@
-import { Component } from 'solid-js';
+import { Component, createSignal } from 'solid-js';
+import { useLocation } from '@solidjs/router';
 import './Navbar.css';
 
 const Navbar: Component = () => {
+  const location = useLocation();
+  const [activePage, setActivePage] = createSignal(location.pathname);
+
+  const isActive = (path: string) => activePage() === path;
+
+  const handleClick = (path: string) => {
+    setActivePage(path);
+  };
+
   return (
     <header class="navbar">
       <div class="navbar-logo">
@@ -12,19 +22,35 @@ const Navbar: Component = () => {
         </div>
       </div>
       <nav class="navbar-links">
-        <a href="/DetailBerita-user">
+        <a 
+          href="/DetailBerita-user" 
+          class={isActive('/DetailBerita-user') ? 'active' : ''}
+          onClick={() => handleClick('/DetailBerita-user')}
+        >
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Informasi&layanan.svg" alt="Informasi & Layanan" />
           Informasi & Layanan
         </a>
-        <a href="/ProfileDaerah-user">
+        <a 
+          href="/ProfileDaerah-user" 
+          class={isActive('/ProfileDaerah-user') ? 'active' : ''}
+          onClick={() => handleClick('/ProfileDaerah-user')}
+        >
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Profile.svg" alt="Profil" />
           Profil
         </a>
-        <a href="/pemerintah">
+        <a 
+          href="/pemerintah" 
+          class={isActive('/pemerintah') ? 'active' : ''}
+          onClick={() => handleClick('/pemerintah')}
+        >
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Pemerintahan.svg" alt="Pemerintah" />
           Pemerintah
         </a>
-        <a href="/Pengaduan-user">
+        <a 
+          href="/pengaduan" 
+          class={isActive('/pengaduan') ? 'active' : ''}
+          onClick={() => handleClick('/pengaduan')}
+        >
           <img src="src\WB_Pemerintahan\Aset_Pemerintahan\Pengaduan.svg" alt="Pengaduan" />
           Pengaduan
         </a>

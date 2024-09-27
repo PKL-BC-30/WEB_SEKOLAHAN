@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.content {
+    margin-left: 40px;
+    flex-grow: 1;
+    padding: 80px 30px 30px 300px ;
+    background-color: #ffffff;
+}
+
+.content h1 {
+    font-family: 'Inter';
+    margin-top: 45px;
+    font-weight: 800;
+    font-size: 26px;
+    margin-bottom: 23px;
+}
+
+.content-in h2 {
+    color: #003BD2;
+    margin-left: -720px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 23px;
+    margin-bottom: 15px;
+}
+.content-in p {
+    color: #000000;
+    font-size: 17px;
+    font-weight: 450;
+    text-align: left;
+    margin-bottom: 45px;
+}
+img.edit1 {
+    margin-left: 310px;
+    margin-top: -40px;
+    margin-bottom: 23px;
+}
+img.edit2 {
+    margin-left: 190px;
+    margin-top: -67px;
+    margin-bottom: 23px;
+}
+img.edit3 {
+    margin-left: 205px;
+    margin-top: -67px;
+    margin-bottom: 23px;
+}
+
+.mission {
+    margin-left: -145px;
+}
+img.edit4 {
+    margin-left: 837px;
+    margin-top: -210px;
+    margin-bottom: 0px;
+}
+img.edit5{
+    margin-left: 827px;
+    margin-top: 38px;
+    margin-bottom: 0px;
+}
+img.edit6 {
+    margin-left: 708px;
+    margin-top: 35px;
+    margin-bottom: 0px;
+}
+img.edit7 {
+    margin-left: 260px;
+    margin-top: -27px;
+    margin-bottom: 20px;
+}
+.struktur {
+    margin-bottom: 50px;
+}
+
+.vision-mission {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+img.eye{
+    margin-left: -20px;
+    margin-bottom: -50px;
+}
+.vision h3 {
+    margin-left: 45px;
+    font-size: 22px;
+    font-weight: 600;
+}
+.vision p {
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 45px;
+    text-align: left;
+}
+.mission img {
+    margin-left: -20px;
+    margin-bottom: -50px;
+}
+.mission h3 {
+    margin-left: 45px;
+    font-size: 22px;
+    font-weight: 600;
+}
+.mission ul li {
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 45px;
+    text-align: justify;
+}
+
+ul {
+    list-style-type: disc; 
+    margin-left: 0px; 
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px; 
+}
+
+.custom-input {
+    width: 100%;
+    padding: 0px;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #000;
+}
+
+.custom-input::placeholder {
+    color: #888888; 
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.vision,
+.mission {
+    width: 48%;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+.mission ul {
+    padding-left: 20px;
+}
+
+.mission li {
+    margin-bottom: 10px;
+}
+
+.upload-area {
+    border: 4px dashed #ced4da;
+    border-radius: 8px;
+    height: 473px;
+    width: 1020px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-area img {
+    margin-left: 100px;
+}
+
+.upload-area:hover {
+    background-color:#D4D9EA; 
+    opacity: 60%;
+}
+
+.button-container {
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 10px; 
+}
+
+.save-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    z-index: 10; 
+}
+
+
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+.struktur h2 {
+    font-family: 'Inter';
+    margin-left: -760px;
+    margin-bottom: -25px;
+    color: #003BD2;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.upload-area img {
+    margin-top: 170px;
+    margin-left: 190px;
+    height: 45px;
+    width: 45px;
+}
+
+.upload-area p {
+    margin-top: -38px;
+    margin-left: 28px;
+    font-size: 20px;
+}
+.upload-area p:hover {
+    color: #000000;
+}
+.struktur {
+    margin-top: 75px;
+    height: 433px; 
+    position: relative; 
+    width: 1020px; 
+}
+
+.background-image {
+    border-radius: 10px;
+    width: 1020px; 
+    height: 470px; 
+    object-fit: cover; 
+}
+
+.overlay {
+    position: absolute; 
+    top: 46px; 
+    left: 0;
+    right: 0; 
+    bottom: -95px; 
+    border-radius: 10px;
+    width: 1000px;
+    height: 473px;
+    background-color: rgba(212, 217, 234, 0.80); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1; 
+}
