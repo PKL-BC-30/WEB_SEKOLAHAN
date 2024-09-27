@@ -5,7 +5,7 @@ import './navbaradmin.css';
 
 const Navbar: Component = () => {
   return (
-    <nav class="navbar">
+    <nav class="navbar-admin">
       <div class="search-container">
         <img src={search} alt="" />
         <input type="text" placeholder="Cari sesuatu.." class="search-input" />

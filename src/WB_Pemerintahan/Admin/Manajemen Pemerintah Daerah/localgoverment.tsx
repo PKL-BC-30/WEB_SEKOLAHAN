@@ -6,14 +6,14 @@ import edit from '../Assets/icon-edit.svg';
 import struktur from './imgetmin/struktur.png';
 import './localgoverment.css';
 import '../Layout/layout.css'; // Tambahkan layout CSS
-import Sidebar from "../Sidebar/sidebaradmin";
-import Navbar from "../Navbar/navbaradmin";
+import SidebarAdmin from "../Sidebar/sidebaradmin";
+import NavbarAdmin from "../Navbar/navbaradmin";
 
 const LocalGovernment: Component = () => {
     return (
         <div class="admin-page">
-            <Sidebar />
-            <Navbar />
+            <SidebarAdmin />
+            <NavbarAdmin />
             <div class="content">
                 <h1>Kelola Visi dan Misi</h1>
 
