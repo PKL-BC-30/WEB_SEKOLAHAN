@@ -18,7 +18,7 @@ import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/Penilaiandan
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
 
 //PEMERINTAHAN
-import Navbar from './WB_Pemerintahan/User/Navbar/Navbar';
+import Dashboard from './WB_Pemerintahan/Admin/Dashboard/Dahboard';
 import Footer from './WB_Pemerintahan/User/Footer/Footer';
 import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
 import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
@@ -57,10 +57,10 @@ render(
 
 
 
+        <Route path="/Dashboard-Pemerintahan" element={<Dashboard/>}/>
         <Route path="/Footer" element={<Footer/>}/>
         <Route path="/DetailBerita-user" element={<DetailBerita/>}/>
         <Route path="/ProfileDaerah-user" element={<ProfileDaerah/>} />
-
       </Routes>
 
     </Router>
