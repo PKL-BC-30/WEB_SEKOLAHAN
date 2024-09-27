@@ -17,6 +17,7 @@ import Jadwal from './Wb_Sekolahan/User/Akademik/Jadwal Pelajaran/jadwal';
 import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
 
+
 //PEMERINTAHAN
 import Navbar from './WB_Pemerintahan/User/Navbar/Navbar';
 import Footer from './WB_Pemerintahan/User/Footer/Footer';
@@ -54,6 +55,7 @@ render(
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
         <Route path="/PemerintahDaerah-user" element={<PemerintahDaerah/>} />
+
 
 
 
