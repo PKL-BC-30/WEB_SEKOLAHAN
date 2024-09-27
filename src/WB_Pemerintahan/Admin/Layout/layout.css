@@ -1,0 +1,33 @@
+/* layout.css */
+.admin-page,
+.page-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    /* Lebar sidebar tetap */
+    height: 100vh;
+    /* Sidebar menutupi seluruh tinggi halaman */
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #FFFFFF;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    /* Geser navbar setelah sidebar */
+    width: calc(100% - 280px);
+    /* Lebar navbar sesuai sisa setelah sidebar */
+    height: 91px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+}
