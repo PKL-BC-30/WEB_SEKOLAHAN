@@ -1,7 +1,6 @@
 import { createSignal, onMount } from 'solid-js';
-import { useNavigate } from '@solidjs/router';  // Import useNavigate
+import { useNavigate } from '@solidjs/router';
 import styles from './ProfileDaerah.module.css';
-import PemerintahDaerah from './PemerintahDaerah';  // Import PemerintahDaerah
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 
@@ -14,7 +13,7 @@ declare global {
 const ProfileDaerah = () => {
   let mapRef: HTMLDivElement | undefined;
   const [map, setMap] = createSignal<any | null>(null);
-  const navigate = useNavigate();  // Initialize navigate function
+  const navigate = useNavigate();
 
   const apiKey = 'FRzYDXHeOKdnnyfX9nnSx7PJEbP5fvaU1PxUN8tRKTU';
   const bandungCoordinates = { lat: -6.9175, lng: 107.6191 };
@@ -105,31 +104,33 @@ const ProfileDaerah = () => {
     };
   });
 
+
   return (
-    <div class={styles.container}>
-        <Navbar/>
-      <div class={styles.content}>
-        <div class={styles.mapSection}>
-          <div class={styles.mapContainer} ref={mapRef}></div>
-          <h2 class={styles.mapTitle}>BANDUNG CITY</h2>
-          <button
-            class={styles.visiMisiButton}
-            onClick={() => navigate('/PemerintahDaerah-user')}  // Navigate to PemerintahDaerah page
-          >
-            Visi Misi & Struktur Pemerintah
-          </button>
-        </div>
-        <div class={styles.descriptionSection}>
-          <h1 class={styles.title}>Profil Kota Bandung</h1>
-          <div class={styles.description}>
-            <p>
-              Kota Bandung terletak di wilayah Jawa Barat dan merupakan Ibukota
-              Propinsi Daerah Tingkat I Jawa Barat. Kota Bandung terletak diantara
-              107 0 Bujur Timur dan 6 0 55' Lintang Selatan. Lokasi Kotamadya
-              Bandung cukup strategis, dilihat dari segi komunikasi, perekonomian
-              maupun keamanan.
-            </p>
-            <p>
+    <div class={styles.pageContainer}>
+      <Navbar />
+      <div class={styles.container}>
+        <div class={styles.content}>
+          <div class={styles.mapSection}>
+            <div class={styles.mapContainer} ref={mapRef}></div>
+            <h2 class={styles.mapTitle}>BANDUNG CITY</h2>
+            <button
+              class={styles.visiMisiButton}
+              onClick={() => navigate('/PemerintahDaerah-user')}
+            >
+              Visi Misi & Struktur Pemerintah
+            </button>
+          </div>
+          <div class={styles.descriptionSection}>
+            <h1 class={styles.title}>Profil Kota Bandung</h1>
+            <div class={styles.description}>
+              <p>
+                Kota Bandung terletak di wilayah Jawa Barat dan merupakan Ibukota
+                Propinsi Daerah Tingkat I Jawa Barat. Kota Bandung terletak diantara
+                107 0 Bujur Timur dan 6 0 55' Lintang Selatan. Lokasi Kotamadya
+                Bandung cukup strategis, dilihat dari segi komunikasi, perekonomian
+                maupun keamanan.
+              </p>
+              <p>
               Secara topografis KotaBandung terletak pada ketinggian 768 meter di
               atas permukaan laut, titik tertinggi di daerah Utara dengan ketinggian
               1.050 meter dan terendah di sebelah Selatan adalah 675 meter di atas
@@ -150,10 +151,11 @@ const ProfileDaerah = () => {
               dan sejuk. Pada tahun 1998 temperatur rata-rata 23,5 o C, curah hujan
               rata-rata 200,4 mm dan jumlah hari hujan rata-rata 21,3 hari perbulan.
             </p>
+            </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

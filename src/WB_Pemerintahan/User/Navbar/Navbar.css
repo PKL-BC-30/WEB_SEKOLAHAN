@@ -47,14 +47,22 @@
     align-items: center;
     gap: 5px;
     font-weight: 500;
+    transition: color 0.3s ease;
   }
   
   .navbar-links a img {
     height: 18px;
+    transition: filter 0.3s ease;
   }
   
-  .navbar-links a:hover {
+  .navbar-links a:hover,
+  .navbar-links a.active {
     color: blue;
+  }
+  
+  .navbar-links a:hover img,
+  .navbar-links a.active img {
+    filter: invert(8%) sepia(98%) saturate(7075%) hue-rotate(246deg) brightness(101%) contrast(145%);
   }
   
   .navbar-actions {
