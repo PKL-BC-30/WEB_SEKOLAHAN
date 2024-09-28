@@ -28,9 +28,12 @@ const Sidebar = () => {
     setShowOptions(!showOptions());
   };
 
+  const handleClickDashboard = () => {
+    navigate('/Dashboard-Pemerintahan');
+  };
 
   const handleClickVisiMisi = () => {
-    navigate('/localgovernment');
+    navigate('/ManajemenPemerintahDaerah-admin');
   };
 
   const handleClickInfoPublik = () => {
@@ -46,6 +49,7 @@ const Sidebar = () => {
   || location.pathname === "/EditBerita-admin"
   || location.pathname === "/EditLayanan-admin";
 
+  const isDashboard = location.pathname === "/Dashboard-Pemerintahan"
 
   return (
     <div class="sidebar-admin">
@@ -58,19 +62,19 @@ const Sidebar = () => {
         <img src={search} alt="Search" />
         <input type="text" placeholder="Cari.." />
       </div>
+
       <div class="sidebar-content">
-        <div class="dashboard-sidebar">
+        <div class={`dashboard-sidebar ${isDashboard ? "local-dashboard-active" : ""} `} onclick={handleClickDashboard}>
           <img src={dashboard} alt="Dashboard" />
-          <h4>Dashboard</h4>
+          <h4 class={isDashboard ? "active" : ""}>Dashboard</h4>
         </div>
+
         <div class="kelolaprofil">
           <img src={profildaerah} alt="Dashboard" />
           <h4>Kelola Profil Daerah</h4>
         </div>
-        <div
-          class={`visimisi ${isLocalGovernmentPage ? "local-government-active" : ""}`}
-          onclick={handleClickVisiMisi}
-        >
+
+        <div class={`visimisi ${isLocalGovernmentPage ? "local-government-active" : ""}`} onclick={handleClickVisiMisi}>
           <img src={isLocalGovernmentPage ? visimisiactive : visismisi} alt="Visi Misi" />
           <h4 class={isLocalGovernmentPage ? "active" : ""}>Visi Misi</h4>
         </div>

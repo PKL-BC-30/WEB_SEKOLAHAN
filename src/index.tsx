@@ -20,7 +20,6 @@ import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/Trans
 
 //PEMERINTAHAN
 import Dashboard from './WB_Pemerintahan/Admin/Dashboard/Dahboard';
-import Navbar from './WB_Pemerintahan/User/Navbar/Navbar';
 import ManajemenPemerintahDaerah from './WB_Pemerintahan/Admin/Manajemen Pemerintah Daerah/localgoverment';
 import ManajemenBeritaPengumuman from './WB_Pemerintahan/Admin/Manajemen Berita dan Pengumuman/newsannouncement';
 import TambahBerita from './WB_Pemerintahan/Admin/Manajemen Berita dan Pengumuman/Tambah/addnews';
@@ -55,6 +54,7 @@ render(
       <Routes>
       <Route path="/Dashboard-admin" element={<SideNavbar/>} />
         <Route path="/admin" element={<App />} /> 
+<<<<<<< HEAD
         <Route path="/ManajemenPemerintahDaerah-admin" element={<ManajemenPemerintahDaerah/>}/>
         <Route path="/ManajemenBeritaPengumuman-admin" element={<ManajemenBeritaPengumuman/>}/>
         <Route path="/TambahBerita-admin" element={<TambahBerita/>}/>
@@ -62,6 +62,8 @@ render(
         <Route path="/EditBerita-admin" element={<EditBerita/>}/>
         <Route path="/EditLayanan-admin" element={<EditLayanan/>}/>
 
+=======
+>>>>>>> 41d53d16a6555e828dda3e4093b472744b6fb2b6
 
         <Route path="/Dashboard-user" element={<DashboardUser/>} />
         <Route path="/Absensi-user" element={<Absensi/>} />
@@ -79,6 +81,8 @@ render(
         <Route path="/DetailBerita-user" element={<DetailBerita/>}/>
         <Route path="/ProfileDaerah-user" element={<ProfileDaerah/>} />
         <Route path="/Pengaduan-user" element={<Pengaduan/>} />
+        <Route path="/ManajemenPemerintahDaerah-admin" element={<ManajemenPemerintahDaerah/>}/>
+
 
       </Routes>
 
