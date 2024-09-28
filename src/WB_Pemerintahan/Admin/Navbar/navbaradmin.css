@@ -4,12 +4,9 @@
     margin-top: 0px;
     margin-left: 280px;
     height: 91px;
-<<<<<<< HEAD
     width: calc(100% - 280px);
-=======
     max-width: calc(100% - 280px);
     min-width: 300px;
->>>>>>> 41d53d16a6555e828dda3e4093b472744b6fb2b6
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -34,6 +31,7 @@
 input.search-input {
     margin-left: 10px;
     background-color: transparent;
+    border: none;
     outline: none;
     font-size: 14px;
     width: 200px;

@@ -54,7 +54,7 @@ const NewsAnnouncementsPage: Component = () => {
         <div class="title">
           <h1>Berita</h1>
         </div>
-        <section class="news-section">
+        <div class="news-section">
           <div class="news-card">
             <img src={kpu} alt="News thumbnail" />
             <div class="news-content">
@@ -78,8 +78,8 @@ const NewsAnnouncementsPage: Component = () => {
             <h1>Tambah Berita</h1>
             <img src={tambah} alt="" />
           </div>
-        </section>
-        <section class="digital-services">
+        </div>
+        <div class="digital-services">
           <h2>Layanan Digital</h2>
           <div class="service-card">
             <img src={bsc} alt="Bandung Smart City logo" />
@@ -102,7 +102,7 @@ const NewsAnnouncementsPage: Component = () => {
             <h1>Tambah Layanan Digital</h1>
             <img src={tambah} alt="" />
           </div>
-        </section>
+        </div>
       </div>
       <DeleteConfirmationModal
         isOpen={showNewsModal()}

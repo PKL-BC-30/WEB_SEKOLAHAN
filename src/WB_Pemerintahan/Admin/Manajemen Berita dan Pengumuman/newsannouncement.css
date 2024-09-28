@@ -2,10 +2,12 @@
 .page-container.navbar {
     display: flex;
     z-index: 100;
-    margin-left: 280px; /* Kamu bisa atur ulang ini jika perlu */
+    margin-left: 280px;
+    /* Kamu bisa atur ulang ini jika perlu */
     margin-top: 80px;
     height: 91px;
-    width: calc(100% - 280px); /* Lebar dikurangi 280px */
+    width: calc(100% - 280px);
+    /* Lebar dikurangi 280px */
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -23,7 +25,7 @@
 
 .konten-utama {
     margin-top: 95px;
-    z-index: 1;
+    z-index: -1;
     margin-left: -1080px;
     flex-grow: 1;
     padding: 20px;
@@ -31,6 +33,8 @@
 }
 
 .title h1 {
+    z-index: 1;
+    position: relative;
     font-size: 28px;
     font-weight: 700;
     margin-left: 20px;
@@ -39,6 +43,8 @@
 
 .news-section,
 .digital-services {
+    position: relative;
+    z-index: 2;
     background-color: transparent;
     border-radius: 8px;
     padding: 20px;
@@ -74,6 +80,8 @@
 }
 
 .news-card {
+    position: relative;
+    z-index: 5;
     display: flex;
     background-color: white;
     border-radius: 20px;
@@ -165,13 +173,13 @@
     font-size: 13px;
     color: #455EFF;
     padding: 10px 15px;
-    
+
     display: flex;
-    
+
     align-items: center;
-    
+
     justify-content: center;
-    
+
 }
 
 .delete-btn {
@@ -182,25 +190,25 @@
     border-radius: 50px;
     font-size: 13px;
     padding: 10px 15px;
-    
+
     display: flex;
-    
+
     align-items: center;
-    
+
     justify-content: center;
-    
+
 }
 
 .news-actions {
     display: flex;
     gap: 10px;
-    
+
 }
 
 .service-actions {
     display: flex;
     gap: 10px;
-    
+
 }
 
 .edit-btn2 {
@@ -213,13 +221,13 @@
     font-size: 13px;
     color: #455EFF;
     padding: 10px 15px;
-    
+
     display: flex;
-    
+
     align-items: center;
-    
+
     justify-content: center;
-    
+
 }
 
 .delete-btn2 {
@@ -231,22 +239,22 @@
     border-radius: 50px;
     font-size: 13px;
     padding: 10px 15px;
-    
+
     display: flex;
-    
+
     align-items: center;
-    
+
     justify-content: center;
-    
+
 }
 
 img.icon {
     width: 15px;
-    
+
     height: 15px;
-    
+
     margin-right: 5px;
-    
+
     margin-left: 0px;
     margin-top: -28px;
     margin-bottom: -25px;
@@ -262,13 +270,13 @@ img.icon {
     height: 370px;
     display: flex;
     align-items: center;
-    
+
     justify-content: center;
-    
+
     flex-direction: column;
-    
+
     text-align: center;
-    
+
     padding: 20px;
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -284,13 +292,13 @@ img.icon {
     height: 370px;
     display: flex;
     align-items: center;
-    
+
     justify-content: center;
-    
+
     flex-direction: column;
-    
+
     text-align: center;
-    
+
     padding: 20px;
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -313,6 +321,7 @@ img.icon {
     margin-left: 0px;
     margin-top: 17px;
 }
+
 .add-service img {
     width: 63px;
     height: 63px;

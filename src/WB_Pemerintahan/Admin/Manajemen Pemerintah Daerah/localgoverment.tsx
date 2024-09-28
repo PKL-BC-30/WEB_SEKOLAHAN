@@ -11,13 +11,13 @@ import NavbarAdmin from "../Navbar/navbaradmin";
 
 const LocalGovernment: Component = () => {
     return (
-        <div class="admin-page">
+        <div class="admin-page-government">
             <SidebarAdmin />
             <NavbarAdmin />
-            <div class="content">
+            <div class="content-government">
                 <h1>Kelola Visi dan Misi</h1>
 
-                <div class="content-in">
+                <div class="content-in-government">
                     <h2>Visi dan Misi Kota Bandung</h2>
                     <img src={edit} class="edit1" />
                     <p>Visi dan Misi Kota Bandung disusun sebagai arah pembangunan untuk mewujudkan kota yang maju, inovatif, dan <br /> 
@@ -53,7 +53,7 @@ const LocalGovernment: Component = () => {
                     <img src={edit} class="edit6" />
                 </div>
 
-                <div class="struktur">
+                <div class="government-structure">
                     <h2>Struktur Pemerintahan</h2>
                     <img src={edit} class="edit7" />
                     {/* <img src={struktur} alt="Struktur Pemerintahan" class="background-image" /> */}
@@ -65,8 +65,8 @@ const LocalGovernment: Component = () => {
                     </div>
                 </div>
 
-                <div class="button-container"> 
-                    <button class="save-button">Simpan Perubahan</button>
+                <div class="button-container-government"> 
+                    <button class="save-button-government">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
