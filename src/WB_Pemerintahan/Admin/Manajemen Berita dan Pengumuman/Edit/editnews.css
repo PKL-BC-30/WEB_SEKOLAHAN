@@ -11,6 +11,27 @@
     font-family: 'Inter', sans-serif;
 }
 
+.editable-news {
+    min-height: 40px;
+    font-size: 33px;
+    width: 800px;
+    font-family: 'Inter';
+    font-weight: 600;
+    background-color: transparent;
+    margin-top: 0px;
+    margin-left: 138px;
+    outline: none;
+    /* To remove the default focus outline */
+    color: #000000;
+    /* Ensures color matches other text */
+}
+
+
+#editable-heading {
+    outline: none;
+    padding: 0.5rem;
+}
+
 .back-button-edit-news {
     position: relative;
     z-index: 20;

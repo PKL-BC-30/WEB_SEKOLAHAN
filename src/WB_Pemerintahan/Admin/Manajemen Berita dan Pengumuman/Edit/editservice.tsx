@@ -64,8 +64,8 @@ const EditService: Component = () => {
       <Sidebar />
       <Navbar />
       <div class="back-button-edit-service">
-        <img src={back} alt="" onclick={handleBack} />
-        <h1 onclick={handleBack}>Edit Layanan Digital</h1>
+        <img src={back} alt="" onClick={handleBack} />
+        <h1 onClick={handleBack}>Edit Layanan Digital</h1>
       </div>
       <main>
         <div class="edit-service-form">
@@ -125,7 +125,7 @@ const EditService: Component = () => {
         </div>
       </main>
       <div class='btn-action-edit-service'>
-        <button class="cancel-btn-service-edit" onclick={handleBack}>Batal</button>
+        <button class="cancel-btn-service-edit" onClick={handleBack}>Batal</button>
         <button class="save-btn-service-edit">Simpan</button>
       </div>
     </div>

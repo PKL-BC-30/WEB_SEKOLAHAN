@@ -45,6 +45,7 @@
 }
 
 .title-input-news {
+    cursor: pointer;
     margin-top: 34px;
     margin-left: 53px;
     width: 60px;
@@ -52,6 +53,18 @@
     border-radius: 15px;
     background-color: #EEEEEE;
     border: 1px dashed #ced4da;
+}
+
+.uploaded-image-add {
+    width: 100%; /* Matches the width of the input */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 60px; /* Adjust as necessary */
+    object-fit: cover; /* Ensures the image covers the area */
+    border-radius: 15px; /* Matches the border radius */
+    position: absolute; /* Positioning to overlay on the title input */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure the image is below the label */
 }
 
 .title-input-news input {

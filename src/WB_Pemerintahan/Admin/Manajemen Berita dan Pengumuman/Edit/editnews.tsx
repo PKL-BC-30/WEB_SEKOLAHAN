@@ -13,6 +13,10 @@ const EditNews: Component = () => {
   const [charCount, setCharCount] = createSignal(0);
   const [imageSrc, setImageSrc] = createSignal(img); // Menggunakan signal untuk gambar
   const MAX_CHARS = 9999;
+  const [isInputFocused, setIsInputFocused] = createSignal(false);
+  const [title, setTitle] = createSignal("KPU Tunggu Juknis Pelaksanaan Debat Paslon Pilwalkot Bandung"); // Signal for title
+  let inputRef: HTMLInputElement | undefined; // Reference variable for input
+
 
   // Update charCount sesuai panjang description saat komponen pertama kali di-render
   createEffect(() => {
@@ -67,7 +71,17 @@ const EditNews: Component = () => {
               style="display: none;" // Menyembunyikan input file
               onChange={handleImageChange}
             />
-            <h1>KPU Tunggu Juknis Pelaksanaan Debat Paslon <br /> Pilwalkot Bandung</h1>
+            <div
+                contentEditable
+                class="editable-news"
+                onInput={(e) => setTitle(e.currentTarget.textContent || '')} // Update title on input
+                onFocus={() => setIsInputFocused(true)} // Set focus state to true
+                onBlur={() => setIsInputFocused(false)} // Set focus state to false
+                role="textbox"
+                aria-label="Editable news"
+            >
+                {title()} {/* Render title */}
+            </div>
           </div>
 
           <div class="source-edit-news">
