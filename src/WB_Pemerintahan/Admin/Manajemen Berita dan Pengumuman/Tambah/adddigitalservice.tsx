@@ -34,7 +34,7 @@ const AddDigitalService: Component = () => {
         </div>
       <main>
         <div class="service-form">
-          <div class="title-input">
+          <div class="title-input-service">
             <img src={file} alt="" />
             <input type="text" placeholder="Tulis Judul" />
           </div>
@@ -55,7 +55,7 @@ const AddDigitalService: Component = () => {
         </div>
       </main>
       <div class='btn-action'>
-        <button class="cancel-btn">Batal</button>
+        <button class="cancel-btn" onclick={handleBack}>Batal</button>
         <button class="save-btn">Simpan</button>
       </div>
     </div>

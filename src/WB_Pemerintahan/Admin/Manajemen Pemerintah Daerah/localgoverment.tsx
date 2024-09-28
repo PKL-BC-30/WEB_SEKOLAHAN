@@ -5,7 +5,7 @@ import upload from '../Assets/document-upload.svg';
 import edit from '../Assets/icon-edit.svg';
 import struktur from './imgetmin/struktur.png';
 import './localgoverment.css';
-import '../Layout/layout.css'; // Tambahkan layout CSS
+// import '../Layout/layout.css'; // Tambahkan layout CSS
 import SidebarAdmin from "../Sidebar/sidebaradmin";
 import NavbarAdmin from "../Navbar/navbaradmin";
 

@@ -15,7 +15,7 @@
     position: relative;
     z-index: 20;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 140px;
     margin-left: 300px;
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
     margin-top: -20px;
 }
 
-.title-input img {
+.title-input-service img {
     margin-left: 13px;
     margin-top: 13px;
     margin-bottom: -40px;
@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.title-input {
+.title-input-service {
     margin-top: 34px;
     margin-left: 53px;
     width: 60px;
@@ -52,14 +52,17 @@
     background-color: #EEEEEE;
     border: 1px dashed #ced4da;
 }
-.title-input input {
+.title-input-service input {
     font-size: 35px;
     font-family: 'Inter';
     font-weight: 450;
+    width: 800px;
     background-color: transparent;
-    margin-left: 83px;
+    border: none !important;
+    margin-left: 70px;
+    margin-top: -10px;
 }
-.title-input input:focus{
+.title-input-service input:focus{
     outline: none;
 }
 main {
@@ -146,8 +149,8 @@ textarea:focus {
 .btn-action {
     position: relative;
     z-index: 5;
-    margin-top: -90px;
-    margin-left: 80px;
+    margin-top: -128px;
+    margin-left: 380px;
 }
 .cancel-btn,
 .save-btn {

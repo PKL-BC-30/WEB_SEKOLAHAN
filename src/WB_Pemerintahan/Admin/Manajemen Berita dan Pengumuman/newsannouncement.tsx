@@ -51,7 +51,7 @@ const NewsAnnouncementsPage: Component = () => {
       <Sidebar />
       <Navbar />
       <div class="konten-utama">
-        <div class="title">
+        <div class="title-top">
           <h1>Berita</h1>
         </div>
         <div class="news-section">

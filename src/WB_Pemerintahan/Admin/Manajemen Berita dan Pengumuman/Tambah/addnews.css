@@ -15,7 +15,7 @@
     position: relative;
     z-index: 20;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 140px;
     margin-left: 300px;
     display: flex;
     align-items: center;
@@ -58,8 +58,11 @@
     font-size: 35px;
     font-family: 'Inter';
     font-weight: 450;
+    width: 800px;
     background-color: transparent;
-    margin-left: 83px;
+    border: none !important;
+    margin-left: 70px;
+    margin-top: -10px;
 }
 .title-input-news input:focus {
     outline: none;
@@ -164,7 +167,7 @@ textarea:focus {
 }
 
 
-.btn-action {
+.btn-action-news {
     position: relative;
     z-index: 5;
     margin-top: -128px;

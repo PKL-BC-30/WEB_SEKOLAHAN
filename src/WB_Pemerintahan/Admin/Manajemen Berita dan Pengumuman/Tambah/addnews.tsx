@@ -55,8 +55,8 @@ const AddNews: Component = () => {
 
         </div>
       </main>
-      <div class='btn-action'>
-        <button class="cancel-btn-news">Batal</button>
+      <div class='btn-action-news'>
+        <button class="cancel-btn-news" onclick={handleBack}>Batal</button>
         <button class="save-btn-news">Simpan</button>
       </div>
     </div>

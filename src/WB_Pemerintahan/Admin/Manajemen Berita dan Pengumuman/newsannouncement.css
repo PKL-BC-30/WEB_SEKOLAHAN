@@ -3,18 +3,15 @@
     display: flex;
     z-index: 100;
     margin-left: 280px;
-    /* Kamu bisa atur ulang ini jika perlu */
     margin-top: 80px;
     height: 91px;
     width: calc(100% - 280px);
-    /* Lebar dikurangi 280px */
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .page-container {
     margin-top: 0px;
     display: flex;
@@ -24,16 +21,18 @@
 
 
 .konten-utama {
-    margin-top: 95px;
-    z-index: -1;
-    margin-left: -1080px;
+    margin-top: 100px; /* Sesuaikan jarak dari navbar */
+    z-index: 1; /* Ubah dari -1 menjadi 1 agar tidak tertutupi */
+    margin-left: 280px; /* Hilangkan nilai negatif */
     flex-grow: 1;
     padding: 20px;
     background-color: #F2F4FA;
+    position: relative;
 }
 
-.title h1 {
-    z-index: 1;
+.title-top h1 {
+    z-index: 2;
+    margin-left: 500px;
     position: relative;
     font-size: 28px;
     font-weight: 700;
@@ -80,8 +79,6 @@
 }
 
 .news-card {
-    position: relative;
-    z-index: 5;
     display: flex;
     background-color: white;
     border-radius: 20px;
