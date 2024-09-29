@@ -1,0 +1,195 @@
+body {
+  font-family: 'Inter', sans-serif; /* Mengatur font default */
+}
+
+.RegisterWebPem-container {
+  position: relative;
+  max-width: 950px;
+  height: 540px;
+  width: 100%;
+  background: #fff;
+  padding: 50px 40px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; 
+  margin-top: 60px;
+  display: flex;
+   border-radius: 10px;
+}
+
+.RegisterWebPem-cover {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  backface-visibility: hidden;
+}
+
+.RegisterWebPem-cover img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 10;
+}
+
+.RegisterWebPem-cover .RegisterWebPem-text {
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.RegisterWebPem-cover .RegisterWebPem-text::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background: #2961d9;
+  border-radius: 10px;
+}
+
+.RegisterWebPem-cover .RegisterWebPem-text .text-1 {
+  z-index: 20;
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bayangan teks */
+}
+
+.RegisterWebPem-forms {
+  height: 100%;
+  width: 100%;
+  margin-top: -30px;
+  background: #fff;
+}
+.RegisterWebPem-signup .title {
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px; /* Atur jarak bawah judul */
+}
+
+.title span {
+  color: #2961d9; 
+  font-weight: bold;
+}
+
+.RegisterWebPem-signup .input-box {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 15px 0; 
+  position: relative;
+}
+
+.RegisterWebPem-signup .input-box input {
+  height: 50px; 
+  width: 47%; 
+  outline: none; 
+  border: 1px solid rgba(0, 0, 0, 0.2); 
+  border-radius: 6px; 
+  padding: 0 36px; 
+  font-size: 14px;
+  font-weight: 400; 
+  transition: border-color 0.3s ease;
+}
+
+.RegisterWebPem-signup .input-box input:focus,
+.RegisterWebPem-signup .input-box input:valid {
+  border-color: #2961d9;
+}
+
+.RegisterWebPem-signup .input-box i {
+  position: absolute;
+  color: #777777;
+  font-size: 17px;
+  margin: 10px;
+}
+
+.RegisterWebPem-signup .input-box i.bx-show, 
+.RegisterWebPem-signup .input-box i.bx-hide {
+  left: 370px; /* Posisi ikon mata di sebelah kanan */
+}
+.RegisterWebPem-signup .text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 480px;
+}
+
+.RegisterWebPem-signup .text a {
+  text-decoration: none;
+}
+
+.RegisterWebPem-signup .text a:hover {
+  text-decoration: underline;
+}
+
+.RegisterWebPem-signup .button {
+  color: #fff;
+  margin-top: 40px;
+}
+
+.RegisterWebPem-signup .button input {
+  color: #fff;
+  background: #2961d9;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.RegisterWebPem-signup .button input:hover {
+  background: #2961d9;
+}
+
+.RegisterWebPem-signup label {
+  color: #2961d9;
+  cursor: pointer;
+}
+
+.RegisterWebPem-signup label:hover {
+  text-decoration: underline;
+}
+
+.RegisterWebPem-signup .sign-up-text {
+  text-align: center;
+  margin-top: 25px;
+}
+.button-RegisterWebPem {
+  display: flex;
+  margin-top: 20px; 
+}
+
+.button-RegisterWebPem input {
+  width: 47%;
+  color: #fff;
+  background: #2961d9; 
+  border: none; 
+  border-radius: 6px;
+  padding: 10px 20px; 
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 730px) {
+  .RegisterWebPem-cover {
+    display: none;
+  }
+
+  .RegisterWebPem-signup {
+    width: 100%;
+  }
+}

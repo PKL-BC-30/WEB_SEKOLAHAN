@@ -3,9 +3,9 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #f5f7fb;
   min-height: 100vh;
-  gap: 30px;
+  gap: 20px;
+  margin-left: 330px;
 }
 
 .title {
@@ -13,6 +13,7 @@
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
+  margin-top: 100px;
 }
 
 .gridItem {

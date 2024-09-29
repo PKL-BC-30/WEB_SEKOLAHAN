@@ -1,8 +1,13 @@
 // Dashboard.tsx
 import styles from './Dashboard.module.css';
+import Sidebar from '../Sidebar/sidebaradmin';
+import Navbar from '../Navbar/navbaradmin';
 
 const Dashboard = () => {
     return (
+        <div>
+            <Navbar />
+            <Sidebar />
         <div class={styles.dashboard}>
             <h1 class={styles.title}>Dashboard</h1>
 
@@ -26,6 +31,7 @@ const Dashboard = () => {
             <div class={styles.gridchart4}>
                 <div class={styles.gridbesar}>Grid besar</div>
             </div>
+        </div>
         </div>
     );
 };
