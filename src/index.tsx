@@ -39,6 +39,7 @@ import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/ba
 
 
 import PengaduaAdmin from './WB_Pemerintahan/Admin/Pengaduan-Admin/PengaduanAdmin';
+import ManagementSlider from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/ManagementSlider';
 
 
 
@@ -95,6 +96,7 @@ render(
         <Route path="/BantuanSosial-admin" element={<BantuanSosial/>}/>
 
         <Route path="/Pengaduan-admin" element={<PengaduaAdmin/>}/>
+        <Route path="/ManagementSlider-admin" element={<ManagementSlider/>}/>
       </Routes>
 
     </Router>
