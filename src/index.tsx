@@ -31,6 +31,8 @@ import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita
 import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
 import ProfileDaerah from './WB_Pemerintahan/User/Profile Daerah/ProfileDaerah';
 import Pengaduan from './WB_Pemerintahan/User/Pengaduan_User/PengaduanUser';
+import DataPenduduk from './WB_Pemerintahan/Admin/Kelola Data Penduduk/DataPenduduk';
+import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/bansos';
 
 
 
@@ -80,8 +82,8 @@ render(
         <Route path="/ProfileDaerah-user" element={<ProfileDaerah/>} />
         <Route path="/Pengaduan-user" element={<Pengaduan/>} />
         <Route path="/ManajemenPemerintahDaerah-admin" element={<ManajemenPemerintahDaerah/>}/>
-
-
+        <Route path="/DataPenduduk-admin" element={<DataPenduduk/>}/>
+        <Route path="/BantuanSosial-admin" element={<BantuanSosial/>}/>
       </Routes>
 
     </Router>

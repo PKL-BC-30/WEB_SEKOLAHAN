@@ -37,8 +37,9 @@ const Sidebar = () => {
   };
 
   const handleClickInfoPublik = () => {
-    navigate('/newsannouncement');
+    navigate('/ManajemenBeritaPengumuman-admin');
   };
+
 
 
   // Mendapatkan URL saat ini
@@ -49,8 +50,8 @@ const Sidebar = () => {
   || location.pathname === "/EditBerita-admin"
   || location.pathname === "/EditLayanan-admin";
 
-  const isDashboard = location.pathname === "/Dashboard-Pemerintahan"
-
+  const isDashboard = location.pathname === "/Dashboard-Pemerintahan";
+  
   return (
     <div class="sidebar-admin">
       <div class="logo">
@@ -90,8 +91,8 @@ const Sidebar = () => {
             <img src={line} class="line" alt="Line" />
             <div class="options">
               <ul>
-                <li><a href="/jadwal">Kelola Data Penduduk</a></li>
-                <li><a href="/penilaiandantugas">Kelola Data Bantuan Sosial</a></li>
+                <li><a href="/DataPenduduk-admin">Kelola Data Penduduk</a></li>
+                <li><a href="/BantuanSosial-admin">Kelola Data Bantuan Sosial</a></li>
               </ul>
             </div>
           </div>
