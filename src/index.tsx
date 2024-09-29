@@ -27,6 +27,7 @@ import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita
 import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
 import ProfileDaerah from './WB_Pemerintahan/User/Profile Daerah/ProfileDaerah';
 import Pengaduan from './WB_Pemerintahan/User/Pengaduan_User/PengaduanUser';
+import RiwayatPengaduan from './WB_Pemerintahan/User/Pengaduan_User/RiwayatPengaduan'
 
 
 
@@ -68,6 +69,7 @@ render(
         <Route path="/DetailBerita-user" element={<DetailBerita/>}/>
         <Route path="/ProfileDaerah-user" element={<ProfileDaerah/>} />
         <Route path="/Pengaduan-user" element={<Pengaduan/>} />
+        <Route path="/RiwayatPengaduan-user" element={<RiwayatPengaduan/>} />
 
       </Routes>
 

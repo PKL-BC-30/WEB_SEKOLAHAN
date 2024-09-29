@@ -66,6 +66,7 @@ export default function ReportForm() {
             setShowPopup(false);
             (event.target as HTMLFormElement).reset();
             setFileName("Upload Lampiran (Max 10 MB)");
+            window.location.href = "/RiwayatPengaduan-user";
         }, 3000);
     };
 
@@ -106,7 +107,7 @@ export default function ReportForm() {
                     <div class="pengaduan-popup">
                         <img src="src\WB_Pemerintahan\User\Assets\centangg.png" alt="Check" class="pengaduan-check-icon" />
                         <p>Laporan Anda akan segera diproses</p>
-                        <button onClick={() => window.location.href = "/history"} class="btn">
+                        <button onClick={() => window.location.href = "/RiwayatPengaduan-user"} class="btn">
                             Cek Laporanmu!
                         </button>
                     </div>
@@ -118,6 +119,11 @@ export default function ReportForm() {
                 )}
             </div>
             <Footer />
+
+            {/* Tombol Lingkaran untuk Menuju Riwayat Laporan */}
+            <div class="floating-button" onClick={() => window.location.href = '/RiwayatPengaduan-user'}>
+                <img src="src\WB_Pemerintahan\User\Assets\hisstory.svg" alt="Riwayat" />
+            </div>
         </div>
     );
 }

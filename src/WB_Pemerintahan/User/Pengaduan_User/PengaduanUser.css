@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
@@ -41,6 +38,7 @@
     font-size: 14px;
     color: black;
 }
+
 .label-pengaduan span {
     font-size: 14px;
     color: red;
@@ -107,9 +105,9 @@ form {
 /* Styling untuk label-pengaduan */
 .label-pengaduan {
     display: block;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 14px;
-    color: #333;
+    color: black;
 }
 
 /* File upload */
@@ -193,47 +191,56 @@ button[type="submit"]:hover {
 }
 
 .illustration-card {
-    background: linear-gradient(135deg, #3578e5 0%, #4a90e2 100%); /* Gradient background */
+    background: linear-gradient(135deg, #3578e5 0%, #4a90e2 100%);
+    /* Gradient background */
     color: white;
     text-align: center;
     padding: 5rem 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Larger shadow for emphasis */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Larger shadow for emphasis */
     width: 100vw;
-    position: relative; /* Relative positioning for decorative elements */
+    position: relative;
+    /* Relative positioning for decorative elements */
     overflow: hidden;
     margin-bottom: 20px;
 }
 
 /* Decorative Waves */
-.illustration-card::before, .illustration-card::after {
+.illustration-card::before,
+.illustration-card::after {
     content: '';
     position: absolute;
     z-index: 0;
     width: 200%;
     height: 150px;
-    background: rgba(255, 255, 255, 0.1); /* Light translucent waves */
+    background: rgba(255, 255, 255, 0.1);
+    /* Light translucent waves */
     border-radius: 50%;
-    transform: rotate(-5deg); /* Slight rotation for wave effect */
+    transform: rotate(-5deg);
+    /* Slight rotation for wave effect */
 }
 
 /* Top Wave */
 .illustration-card::before {
     top: -50px;
     left: -100px;
-    transform: rotate(10deg); /* Rotate to make it look like a wave */
+    transform: rotate(10deg);
+    /* Rotate to make it look like a wave */
 }
 
 /* Bottom Wave */
 .illustration-card::after {
     bottom: -50px;
     right: -100px;
-    transform: rotate(-10deg); /* Rotate to mirror the top wave */
+    transform: rotate(-10deg);
+    /* Rotate to mirror the top wave */
 }
 
 /* Content Inside the Card */
 .illustration-content {
     position: relative;
-    z-index: 1; /* Ensure content stays above the background */
+    z-index: 1;
+    /* Ensure content stays above the background */
 }
 
 .illustration-card h1 {
@@ -250,7 +257,8 @@ button[type="submit"]:hover {
 /* Extra Decorative Circles */
 .illustration-card .decorative-circle {
     position: absolute;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white circles */
+    background: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent white circles */
     border-radius: 50%;
     z-index: 0;
 }
@@ -292,6 +300,40 @@ button[type="submit"]:hover {
     font-size: 16px;
     margin: 0;
 }
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    /* Jarak dari bawah */
+    right: 20px;
+    /* Jarak dari kanan */
+    width: 60px;
+    height: 60px;
+    background-color: #3578e5;
+    /* Warna latar belakang */
+    color: white;
+    border-radius: 50%;
+    /* Membuat tombol menjadi lingkaran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    /* Agar tombol tetap di atas elemen lain */
+    transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+    background-color: #2b5cb8;
+    /* Warna tombol saat di-hover */
+}
+
+.floating-button img {
+    width: 30px;
+    height: 30px;
+}
+
 
 
 /* Small screens (responsive) */
