@@ -4,12 +4,17 @@
     margin-top: 0px;
     margin-left: 280px;
     height: 91px;
+    width: calc(100% - 280px);
     max-width: calc(100% - 280px);
-    min-width: 280px;
+    min-width: 300px;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
     background-color: #FFFFFF;
+    position: fixed;
+    width: 1440px;
 }
 
 .search-container {
@@ -20,12 +25,13 @@
     width: 375px;
     border-radius: 20px;
     padding: 5px 15px;
-    margin-left: 410px;
+    margin-left: 550px;
 }
 
 input.search-input {
     margin-left: 10px;
     background-color: transparent;
+    border: none;
     outline: none;
     font-size: 14px;
     width: 200px;

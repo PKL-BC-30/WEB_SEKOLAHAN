@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.content {
-    margin-left: 40px;
+.content-government {
+    margin-top: 0px;
+    margin-left: 280px;
     flex-grow: 1;
-    padding: 80px 30px 30px 300px ;
+    padding: 80px 30px 30px 80px ;
     background-color: #ffffff;
 }
 
-.content h1 {
+.content-government h1 {
     font-family: 'Inter';
     margin-top: 45px;
     font-weight: 800;
@@ -15,15 +16,16 @@
     margin-bottom: 23px;
 }
 
-.content-in h2 {
+.content-in-government h2 {
+    position: relative;
     color: #003BD2;
-    margin-left: -720px;
+    margin-left: -655px;
     font-size: 24px;
     font-weight: 600;
     margin-top: 23px;
     margin-bottom: 15px;
 }
-.content-in p {
+.content-in-government p {
     color: #000000;
     font-size: 17px;
     font-weight: 450;
@@ -50,12 +52,12 @@ img.edit3 {
     margin-left: -145px;
 }
 img.edit4 {
-    margin-left: 837px;
-    margin-top: -210px;
+    margin-left: 807px;
+    margin-top: -228px;
     margin-bottom: 0px;
 }
 img.edit5{
-    margin-left: 827px;
+    margin-left: 848px;
     margin-top: 38px;
     margin-bottom: 0px;
 }
@@ -69,7 +71,7 @@ img.edit7 {
     margin-top: -27px;
     margin-bottom: 20px;
 }
-.struktur {
+.government-structure {
     margin-bottom: 50px;
 }
 
@@ -130,6 +132,12 @@ li {
     border-radius: 4px;
     font-size: 15px;
     color: #000;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.custom-input input {
+    border: none;
 }
 
 .custom-input::placeholder {
@@ -138,7 +146,6 @@ li {
 
 .custom-input:focus {
     outline: none;
-    border-color: #007bff;
 }
 
 .vision,
@@ -159,32 +166,36 @@ li {
 }
 
 .upload-area {
-    border: 4px dashed #ced4da;
-    border-radius: 8px;
-    height: 473px;
-    width: 1020px;
-    padding: 20px;
+    position: relative;
+    width: 92%; /* Set to your desired width */
+    height: 433px; /* Set to your desired height */
+    border-radius: 14px;
+    border: 2px dashed #ccc; /* Style for upload area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+}
+.upload-area img.uploaded-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    position: absolute; /* Positioning to overlay on upload area */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Make sure it's above the background */
 }
 
-.upload-area img {
-    margin-left: 100px;
-}
 
-.upload-area:hover {
-    background-color:#D4D9EA; 
-    opacity: 60%;
-}
 
-.button-container {
+.button-container-government {
     display: flex; 
     justify-content: flex-end; 
     margin-top: 10px; 
 }
 
-.save-button {
+.save-button-government {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -199,13 +210,11 @@ li {
     z-index: 10; 
 }
 
-
-
-.save-button:hover {
+.save-button-government:hover {
     background-color: #0056b3;
 }
 
-.struktur h2 {
+.government-structure h2 {
     font-family: 'Inter';
     margin-left: -760px;
     margin-bottom: -25px;
@@ -214,22 +223,24 @@ li {
     font-weight: 600;
 }
 
-.upload-area img {
-    margin-top: 170px;
-    margin-left: 190px;
+img.upload-icon {
+    margin-top: 0px;
+    margin-left: 40px;
     height: 45px;
     width: 45px;
 }
 
 .upload-area p {
+    color: #000000;
     margin-top: -38px;
-    margin-left: 28px;
+    margin-left: 98px;
     font-size: 20px;
+    font-weight: 500;
 }
 .upload-area p:hover {
     color: #000000;
 }
-.struktur {
+.government-structure {
     margin-top: 75px;
     height: 433px; 
     position: relative; 
@@ -241,20 +252,4 @@ li {
     width: 1020px; 
     height: 470px; 
     object-fit: cover; 
-}
-
-.overlay {
-    position: absolute; 
-    top: 46px; 
-    left: 0;
-    right: 0; 
-    bottom: -95px; 
-    border-radius: 10px;
-    width: 1000px;
-    height: 473px;
-    background-color: rgba(212, 217, 234, 0.80); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    z-index: 1; 
 }

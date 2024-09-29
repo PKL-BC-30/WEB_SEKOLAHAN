@@ -28,7 +28,9 @@
     "boxicons": "^2.1.4",
     "date-fns": "^4.1.0",
     "leaflet": "^1.9.4",
+    "notyf": "^3.10.0",
     "solid-icons": "^1.1.0",
-    "solid-js": "^1.8.11"
+    "solid-js": "^1.8.11",
+    "xlsx": "^0.18.5"
   }
 }

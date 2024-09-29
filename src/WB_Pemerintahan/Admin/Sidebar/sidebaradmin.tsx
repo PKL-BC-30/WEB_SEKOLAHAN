@@ -28,21 +28,30 @@ const Sidebar = () => {
     setShowOptions(!showOptions());
   };
 
+  const handleClickDashboard = () => {
+    navigate('/Dashboard-Pemerintahan');
+  };
 
   const handleClickVisiMisi = () => {
-    navigate('/localgovernment');
+    navigate('/ManajemenPemerintahDaerah-admin');
   };
 
   const handleClickInfoPublik = () => {
-    navigate('/newsannouncement');
+    navigate('/ManajemenBeritaPengumuman-admin');
   };
-  
+
+
 
   // Mendapatkan URL saat ini
   const isLocalGovernmentPage = location.pathname === "/ManajemenPemerintahDaerah-admin";
-const isNewsAnnouncementPage = location.pathname === "/newsannouncement" || location.pathname === "/newsannouncement/addnews"|| location.pathname === "/newsannouncement/adddigitalservice";
+  const isNewsAnnouncementPage = location.pathname === "/ManajemenBeritaPengumuman-admin" 
+  || location.pathname === "/TambahBerita-admin" 
+  || location.pathname === "/TambahLayanan-admin"
+  || location.pathname === "/EditBerita-admin"
+  || location.pathname === "/EditLayanan-admin";
 
-
+  const isDashboard = location.pathname === "/Dashboard-Pemerintahan";
+  
   return (
     <div class="sidebar-admin">
       <div class="logo">
@@ -54,19 +63,19 @@ const isNewsAnnouncementPage = location.pathname === "/newsannouncement" || loca
         <img src={search} alt="Search" />
         <input type="text" placeholder="Cari.." />
       </div>
+
       <div class="sidebar-content">
-        <div class="dashboard-sidebar">
+        <div class={`dashboard-sidebar ${isDashboard ? "local-dashboard-active" : ""} `} onclick={handleClickDashboard}>
           <img src={dashboard} alt="Dashboard" />
-          <h4>Dashboard</h4>
+          <h4 class={isDashboard ? "active" : ""}>Dashboard</h4>
         </div>
+
         <div class="kelolaprofil">
           <img src={profildaerah} alt="Dashboard" />
           <h4>Kelola Profil Daerah</h4>
         </div>
-        <div
-          class={`visimisi ${isLocalGovernmentPage ? "local-government-active" : ""}`}
-          onclick={handleClickVisiMisi}
-        >
+
+        <div class={`visimisi ${isLocalGovernmentPage ? "local-government-active" : ""}`} onclick={handleClickVisiMisi}>
           <img src={isLocalGovernmentPage ? visimisiactive : visismisi} alt="Visi Misi" />
           <h4 class={isLocalGovernmentPage ? "active" : ""}>Visi Misi</h4>
         </div>
@@ -82,8 +91,8 @@ const isNewsAnnouncementPage = location.pathname === "/newsannouncement" || loca
             <img src={line} class="line" alt="Line" />
             <div class="options">
               <ul>
-                <li><a href="/jadwal">Kelola Data Penduduk</a></li>
-                <li><a href="/penilaiandantugas">Kelola Data Bantuan Sosial</a></li>
+                <li><a href="/DataPenduduk-admin">Kelola Data Penduduk</a></li>
+                <li><a href="/BantuanSosial-admin">Kelola Data Bantuan Sosial</a></li>
               </ul>
             </div>
           </div>
@@ -93,7 +102,7 @@ const isNewsAnnouncementPage = location.pathname === "/newsannouncement" || loca
           class={`info ${isNewsAnnouncementPage ? "news-announcement-active" : ""}`} // Menambahkan kondisi aktif
           onclick={handleClickInfoPublik}
         >
-          <img src={isNewsAnnouncementPage? infoactive :info} alt="Info Publik" />
+          <img src={isNewsAnnouncementPage ? infoactive : info} alt="Info Publik" />
           <h4>Info Publik</h4>
         </div>
 

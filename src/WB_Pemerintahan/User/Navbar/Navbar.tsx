@@ -47,7 +47,7 @@ const Navbar: Component = () => {
           Pemerintah
         </a>
         <a 
-          href="/pengaduan" 
+          href="/Pengaduan-user" 
           class={isActive('/pengaduan') ? 'active' : ''}
           onClick={() => handleClick('/pengaduan')}
         >
