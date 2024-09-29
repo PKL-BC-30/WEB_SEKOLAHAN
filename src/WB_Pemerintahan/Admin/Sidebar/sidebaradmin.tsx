@@ -40,6 +40,10 @@ const Sidebar = () => {
     navigate('/ManajemenBeritaPengumuman-admin');
   };
 
+  const handleClickPengaduanAdmin = () => {
+    navigate('/Pengaduan-admin');
+  };
+
 
 
   // Mendapatkan URL saat ini
@@ -48,6 +52,7 @@ const Sidebar = () => {
   || location.pathname === "/TambahBerita-admin" 
   || location.pathname === "/TambahLayanan-admin"
   || location.pathname === "/EditBerita-admin"
+  || location.pathname === "/Pengaduan-admin"
   || location.pathname === "/EditLayanan-admin";
 
   const isDashboard = location.pathname === "/Dashboard-Pemerintahan";
@@ -106,7 +111,7 @@ const Sidebar = () => {
           <h4>Info Publik</h4>
         </div>
 
-        <div class="aspirasi">
+        <div class="aspirasi" onclick={handleClickPengaduanAdmin}>
           <img src={aspirasi} alt="Aspirasi Publik" />
           <h4>Aspirasi Publik</h4>
         </div>

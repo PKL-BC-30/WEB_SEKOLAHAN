@@ -92,7 +92,7 @@ export default function ReportForm() {
                     <textarea name="description" class="input-pengaduan" placeholder="Ketikkan isi laporan Anda" rows="5" required></textarea>
 
                     <label for="date" class="label-pengaduan">Tanggal Kejadian: <span>*</span></label>
-                    <input type="date" name="date" class="input-pengaduan" placeholder="Pilih tanggal kejadian" required />
+                    <input type="date" name="date" class="input-pengaduan" required />
 
                     <label for="location" class="label-pengaduan">Lokasi Kejadian: <span>*</span></label>
                     <input type="text" name="location" class="input-pengaduan" placeholder="Ketik lokasi kejadian" required />

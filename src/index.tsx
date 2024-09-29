@@ -38,6 +38,9 @@ import DataPenduduk from './WB_Pemerintahan/Admin/Kelola Data Penduduk/DataPendu
 import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/bansos';
 
 
+import PengaduaAdmin from './WB_Pemerintahan/Admin/Pengaduan-Admin/PengaduanAdmin';
+
+
 
 
 
@@ -90,6 +93,8 @@ render(
         <Route path="/ManajemenPemerintahDaerah-admin" element={<ManajemenPemerintahDaerah/>}/>
         <Route path="/DataPenduduk-admin" element={<DataPenduduk/>}/>
         <Route path="/BantuanSosial-admin" element={<BantuanSosial/>}/>
+
+        <Route path="/Pengaduan-admin" element={<PengaduaAdmin/>}/>
       </Routes>
 
     </Router>
