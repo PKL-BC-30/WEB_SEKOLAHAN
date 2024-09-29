@@ -1,0 +1,182 @@
+body {
+  font-family: 'Inter', sans-serif; /* Mengatur font default */
+}
+
+.LoginWebPem-container {
+  position: relative;
+  max-width: 950px;
+  height: 500px;
+  width: 100%;
+  background: #fff;
+  padding: 30px 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 70px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.LoginWebPem-cover {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  backface-visibility: hidden;
+  border-radius: 0 10px 10px 0; /* Melengkungkan sisi kanan */
+}
+
+.LoginWebPem-cover img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 10;
+  border-radius: 0 10px 10px 0; /* Melengkungkan sisi kanan */
+}
+
+.LoginWebPem-cover .LoginWebPem-text {
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginWebPem-cover .LoginWebPem-text::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  border-radius: 10px;
+  background: #2961d9;
+}
+
+.LoginWebPem-cover .LoginWebPem-text .text-1 {
+  z-index: 20;
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bayangan teks */
+}
+
+.LoginWebPem-forms {
+  height: 100%;
+  width: 50%;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px 0 0 10px; /* Melengkungkan sisi kiri */
+}
+
+.LoginWebPem-signup .title {
+  position: relative;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.LoginWebPem-signup .input-boxes {
+  margin-top: 30px;
+}
+
+.LoginWebPem-signup .input-box {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 15px 0;
+  position: relative;
+}
+
+.LoginWebPem-signup .input-box input {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 0 40px;
+  font-size: 14px;
+  font-weight: 400;
+  transition: border-color 0.3s ease;
+}
+
+.LoginWebPem-signup .input-box input:focus,
+.LoginWebPem-signup .input-box input:valid {
+  border-color: #2961d9;
+}
+
+.LoginWebPem-signup .input-box i {
+  position: absolute;
+  color: #777777;
+  font-size: 17px;
+  margin: 10px;
+}
+
+.LoginWebPem-signup .input-box i.bx-show, 
+.LoginWebPem-signup .input-box i.bx-hide {
+  right: 10px; /* Posisi ikon mata di sebelah kanan */
+  cursor: pointer;
+}
+
+.LoginWebPem-signup .text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.LoginWebPem-signup .text a {
+  text-decoration: none;
+}
+
+.LoginWebPem-signup .text a:hover {
+  text-decoration: underline;
+}
+
+.LoginWebPem-signup .button-LoginWebPem {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.LoginWebPem-signup .button-LoginWebPem input {
+  width: 100%;
+  color: #fff;
+  background: #2961d9;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.LoginWebPem-signup .button-LoginWebPem input:hover {
+  background: #254ebe;
+}
+
+.LoginWebPem-signup .sign-in-text {
+  text-align: center;
+  margin-top: 25px;
+}
+.LoginWebPem-signup label {
+    color: #2961d9;
+    cursor: pointer;
+}
+@media (max-width: 730px) {
+  .LoginWebPem-cover {
+    display: none;
+  }
+
+  .LoginWebPem-forms {
+    width: 100%;
+    border-radius: 10px;
+  }
+}

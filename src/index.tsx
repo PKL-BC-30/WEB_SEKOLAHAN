@@ -24,6 +24,8 @@ import Footer from './WB_Pemerintahan/User/Footer/Footer';
 import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
 import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
 import ProfileDaerah from './WB_Pemerintahan/User/Profile Daerah/ProfileDaerah';
+import RegisterPemerintah from './WB_Pemerintahan/User/Login-Register/Register-WebPem';
+import LoginPemerintah from './WB_Pemerintahan/User/Login-Register/login-webpem';
 
 
 
@@ -56,7 +58,8 @@ render(
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
         <Route path="/PemerintahDaerah-user" element={<PemerintahDaerah/>} />
-
+        <Route path="/RegisterPemerintah" element={<RegisterPemerintah/>} />
+        <Route path="/LoginPemerintah" element={<LoginPemerintah/>} />
 
 
         <Route path="/Footer" element={<Footer/>}/>
