@@ -1,5 +1,7 @@
 import { For } from 'solid-js';
 import styles from './jadwal.module.css';
+import Sidebar from '../../Sidebar/sidebar';
+import Navbar from '../../Navbar/navbar';
 
 const scheduleData = [
   { time: '07.00-08.00', senin: 'Matematika', selasa: 'PPKN', rabu: 'Kimia', kamis: 'B.Inggris', jumat: 'PPKN' },
@@ -25,7 +27,10 @@ const subjectClasses = {
 
 export const Jadwal = () => {
   return (
-    <div class={styles.jadwalContainer}>
+    <div class="jadwal-user">
+      <Sidebar />
+      <Navbar />
+      <div class={styles.jadwalContainer}>
       <table class={styles.jadwalTable}>
         <thead>
           <tr>
@@ -54,6 +59,7 @@ export const Jadwal = () => {
           </For>
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

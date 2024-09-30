@@ -1,49 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 .sidebar{
     position: fixed;
-    background-color: #FFFFFF;
-    width: 100vw;
+    background-color: #fff;
+    width: 250px;
     margin-top: 5px;
     height: 100vh;
     transition: width 0.3s ease;
     z-index: 1;
 }
-.logo img {
-    height: 25px;
-    width: 100px;
+.logo-sidebar img {
     margin-left: 25px;
     margin-top: 15px;
-}
-
-.searchbar {
-    margin-top: -640px;
-    margin-left: 15px;
-    border: 2px solid #ECECEC;
-    border-radius: 10px;
-    width: 200px;
-    height: 45px;
-}
-
-
-.searchbar img {
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: -20px;
-}
-
-.searchbar input {
-    margin-top: -60px;
-    font-family: 'Inter', sans-serif;
-    margin-left: 50px;
-    font-size: 15px;
-    background-color: transparent;
-    width: 50px;
-    border: none;
-    outline: none;
-}
-
-.pembelajaran {
-    margin-top: -15px;
+    width: 120px;
 }
 
 .pembelajaran img {
@@ -62,41 +30,38 @@
     cursor: pointer;
 }
 
-.line {
+.sidebar-line {
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: -122px;
 }
 
-.options {
-    margin-left: 50px;
-    margin-top: 5px;
+.sidebar-options {
+    margin-left: 40px;
+    margin-top: -35px;
     padding: 10px;
     font-family: 'Inter', sans-serif;
     color: #646464;
     font-size: 14px;
     margin-bottom: -30px;
-    
-    
-    border-radius: 5px;
 }
 
-.options ul {
+.sidebar-options ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    
 }
 
-.options ul li {
-    padding: 10px 0;
+.sidebar-options ul li {
+    padding: 8px 0;
 }
 
-.options ul li a {
+.sidebar-options ul li a {
     text-decoration: none;
     color: #333;
 }
 
-.options ul li a:hover {
+.sidebar-options ul li a:hover {
     color: #007bff;
 }
 
@@ -155,13 +120,6 @@
     margin-left: 60px;
 }
 
-.other h4 {
-    font-family: 'Inter', sans-serif;
-    margin-top: 30px;
-    color: #646464;
-    font-size: 16px;
-    margin-left: 60px;
-}
 
 .setting img {
     margin-left: 22px;
@@ -188,11 +146,10 @@
     margin-left: 60px;
 }
 
-.other {
+.other-sidebar {
     position: absolute; 
-    bottom: 20px; 
-    left: 0; 
-    width: 100%; 
+    left: 10; 
+    bottom: 40px;
     padding-left: 22px; 
 }
 
@@ -212,7 +169,7 @@
 }
 
 
-.other div {
+.other-sidebar div {
     display: flex; 
     align-items: center; 
 }

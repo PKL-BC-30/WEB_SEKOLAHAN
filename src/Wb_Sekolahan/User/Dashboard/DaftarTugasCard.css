@@ -1,11 +1,9 @@
 .task-card {
-    max-height: 200px;
-    overflow-y: hidden;
+    max-height: 200px; /* Adjusted for better display */
     width: 100%;
-    height: auto;
-    overflow-y: auto;
     padding: 10px;
     border-radius: 8px;
+    overflow-y: auto;
 }
 
 .task-card__header {
@@ -15,10 +13,12 @@
 }
 
 .task-card__title {
-    margin: 0;
     color: black;
     font-weight: 600;
     font-size: 20px;
+    border: none;
+    margin-left: -25px;
+    margin-top: -20px;
 }
 
 .lihat-semua-btn {
@@ -30,10 +30,6 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-}
-
-.task-card__group {
-    margin-top: 20px;
 }
 
 .task-card__group h3 {
@@ -69,7 +65,7 @@
 .task-card__time-date {
     display: flex;
     justify-content: space-between;
-    gap: 390px; /* Add some space between time and date */
+    gap: 20px; /* Adjust gap to be more reasonable */
 }
 
 .task-card__item p {

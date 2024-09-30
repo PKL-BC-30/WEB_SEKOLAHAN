@@ -16,7 +16,7 @@ import Penanggalan from './Wb_Sekolahan/User/Kalender/kalender';
 import Jadwal from './Wb_Sekolahan/User/Akademik/Jadwal Pelajaran/jadwal';
 import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/PenilaiandanTugas';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
-
+import Ekstrakurikuler from './Wb_Sekolahan/User/Ekstrakulikuler/eskul';
 
 //PEMERINTAHAN
 import Dashboard from './WB_Pemerintahan/Admin/Dashboard/Dahboard';
@@ -77,6 +77,8 @@ render(
         <Route path="/Jadwal-user" element={<Jadwal/>} />
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
+        <Route path="/Ekstra-user" element={<Ekstrakurikuler/>} />
+
         <Route path="/PemerintahDaerah-user" element={<PemerintahDaerah/>} />
         <Route path="/RegisterPemerintah" element={<RegisterPemerintah/>} />
         <Route path="/LoginPemerintah" element={<LoginPemerintah/>} />

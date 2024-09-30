@@ -63,56 +63,46 @@ const Sidebar = () => {
 
   return (
     <div class="sidebar">
-      <div class="logo">
+      <div class="logo-sidebar">
         <img src={logo} alt="Logo" />
-      </div>
-      <div class="searchbar">
-        <img src={search} alt="Search" />
-        <input type="text" placeholder="Cari.." />
       </div>
       <div class="sidebar-content">
         <div class="sidebar-menu">
-        <div class="pembelajaran" onclick={handleClickDashboard}>
-          <img src={isDashboardActive ? bukubold : buku} alt="Dashboard" />
-          <h4 style={{ color: isDashboardActive ? '#000000' : '#646464', 'font-weight': isDashboardActive ? 'bold' : 'normal' }}>Dashboard</h4>
-        </div>
+          <div class="pembelajaran" onclick={handleClickDashboard}>
+            <img src={isDashboardActive ? bukubold : buku} alt="Dashboard" />
+            <h4 class={isDashboardActive ? 'active' : ''}>Dashboard</h4>
+          </div>
 
-        <div class="transkrip" onclick={handleTranskripClick}>
-          <img src={isAcademicRouteActive ? akademikbold : akademik} alt="Transkrip Nilai" /> {/* Updated icon rendering */}
-          <h4 style={{ color: isAcademicRouteActive ? '#000000' : '#646464', 'font-weight': isAcademicRouteActive ? 'bold' : 'normal' }}>
-            Informasi Akademik
-          </h4>
-        </div>
+          <div class="transkrip" onclick={handleTranskripClick}>
+            <img src={isAcademicRouteActive ? akademikbold : akademik} alt="Transkrip Nilai" />
+            <h4 class={isAcademicRouteActive ? 'active' : ''}>Informasi Akademik</h4>
+          </div>
 
-        {showOptions() && (
-          <div class="options-container">
-            <img src={line} class="line" alt="Line" />
-            <div class="options">
-              <ul>
-                <li><a href="/Jadwal-user">Jadwal Pelajaran</a></li>
-                <li><a href="/Penilaian&Tugas-user">Tugas dan Penilaian</a></li>
-                <li><a href="/TranskripNilai-user">Transkrip Nilai</a></li>
-              </ul>
+          {showOptions() && (
+            <div class="options-container">
+              <img src={line} class="sidebar-line" alt="Line" />
+              <div class="sidebar-options">
+                <ul>
+                  <li><a href="/Jadwal-user">Jadwal Pelajaran</a></li>
+                  <li><a href="/Penilaian&Tugas-user">Tugas dan Penilaian</a></li>
+                  <li><a href="/TranskripNilai-user">Transkrip Nilai</a></li>
+                </ul>
+              </div>
             </div>
+          )}
+
+          <div class="absensi" onclick={handleClickAbsensi}>
+            <img src={isAbsensiRouteActive || absensiActive() ? absensibold : absensi} alt="Absensi" />
+            <h4 class={isAbsensiRouteActive || absensiActive() ? 'active' : ''}>Absensi Kehadiran</h4>
           </div>
-        )}
 
-        <div class="absensi" onclick={handleClickAbsensi}>
-          <img src={isAbsensiRouteActive || absensiActive() ? absensibold : absensi} alt="Absensi" />
-          <h4 style={{ color: isAbsensiRouteActive || absensiActive() ? '#000000' : '#646464', 'font-weight': isAbsensiRouteActive || absensiActive() ? 'bold' : 'normal' }}>
-            Absensi Kehadiran
-          </h4>
-        </div>
-
-        <div class="eskul" onclick={handleClickEkstrakurikuler}>
-          <img src={isEkstrakurikulerActive ? eskulbold : eskul} alt="Ekstrakurikuler" />
-          <h4 style={{ color: isEkstrakurikulerActive ? '#000000' : '#646464', 'font-weight': isEkstrakurikulerActive ? 'bold' : 'normal' }}>
-            Ekstrakurikuler
-          </h4>
+          <div class="eskul" onclick={handleClickEkstrakurikuler}>
+            <img src={isEkstrakurikulerActive ? eskulbold : eskul} alt="Ekstrakurikuler" />
+            <h4 class={isEkstrakurikulerActive ? 'active' : ''}>Ekstrakurikuler</h4>
           </div>
         </div>
 
-        <div class="other">
+        <div class="other-sidebar">
           <div class="setting">
             <img src={setting} alt="Pengaturan" />
             <h4>Pengaturan</h4>
@@ -127,4 +117,5 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar
+
