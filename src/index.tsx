@@ -42,7 +42,9 @@ import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/ba
 
 import PengaduaAdmin from './WB_Pemerintahan/Admin/Pengaduan-Admin/PengaduanAdmin';
 import ManagementSlider from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/ManagementSlider';
-
+import PopupInformasiTerbaru from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/Popup/InformasiTerbaruPopup';
+import PopupInformasiPopuler from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/Popup/InformasiPopulerPopup';
+import DigitalServicesPopup from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/Popup/DigitalServicePopup';
 
 
 
@@ -103,6 +105,9 @@ render(
 
         <Route path="/Pengaduan-admin" element={<PengaduaAdmin/>}/>
         <Route path="/ManagementSlider-admin" element={<ManagementSlider/>}/>
+        <Route path="/PopupInformasiTerbaru-admin" element={<PopupInformasiTerbaru/>}/>
+        <Route path="/PopupInformasiPopuler-admin" element={<PopupInformasiPopuler/>}/>
+        <Route path="/PopupDigitalService-admin" element={<DigitalServicesPopup/>}/>
       </Routes>
 
     </Router>
