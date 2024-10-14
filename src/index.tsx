@@ -20,6 +20,9 @@ import DetailMateri from './Wb_Sekolahan/User/Materi/Detail Materi/detailmateri'
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
 import Ekstrakurikuler from './Wb_Sekolahan/User/Ekstrakulikuler/eskul';
 
+//GURU
+import MenuGuru from './Wb_Sekolahan/Guru/navbar/navbar';
+
 //PEMERINTAHAN
 import Dashboard from './WB_Pemerintahan/Admin/Dashboard/Dahboard';
 import ManajemenPemerintahDaerah from './WB_Pemerintahan/Admin/Manajemen Pemerintah Daerah/localgoverment';
@@ -90,7 +93,7 @@ render(
         <Route path="/RegisterPemerintah" element={<RegisterPemerintah/>} />
         <Route path="/LoginPemerintah" element={<LoginPemerintah/>} />
 
-
+        <Route path="/MenuGuru" element={<MenuGuru/>} />
 
         <Route path="/Dashboard-Pemerintahan" element={<Dashboard/>}/>
         <Route path="/Footer" element={<Footer/>}/>
