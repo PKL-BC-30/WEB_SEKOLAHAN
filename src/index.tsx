@@ -19,6 +19,9 @@ import Materi from './Wb_Sekolahan/User/Materi/materi';
 import DetailMateri from './Wb_Sekolahan/User/Materi/Detail Materi/detailmateri';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
 
+//GURU
+import MenuGuru from './Wb_Sekolahan/Guru/navbar/navbar';
+
 //PEMERINTAHAN
 import Dashboard from './WB_Pemerintahan/Admin/Dashboard/Dahboard';
 import ManajemenPemerintahDaerah from './WB_Pemerintahan/Admin/Manajemen Pemerintah Daerah/localgoverment';
@@ -41,7 +44,9 @@ import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/ba
 
 import PengaduaAdmin from './WB_Pemerintahan/Admin/Pengaduan-Admin/PengaduanAdmin';
 import ManagementSlider from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/ManagementSlider';
-
+import PopupInformasiTerbaru from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/Popup/InformasiTerbaruPopup';
+import PopupInformasiPopuler from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/Popup/InformasiPopulerPopup';
+import DigitalServicesPopup from './WB_Pemerintahan/Admin/Manajemen Slider dan Konten Utama - admin/Popup/DigitalServicePopup';
 
 
 
@@ -85,7 +90,7 @@ render(
         <Route path="/RegisterPemerintah" element={<RegisterPemerintah/>} />
         <Route path="/LoginPemerintah" element={<LoginPemerintah/>} />
 
-
+        <Route path="/MenuGuru" element={<MenuGuru/>} />
 
         <Route path="/Dashboard-Pemerintahan" element={<Dashboard/>}/>
         <Route path="/Footer" element={<Footer/>}/>
@@ -100,6 +105,9 @@ render(
 
         <Route path="/Pengaduan-admin" element={<PengaduaAdmin/>}/>
         <Route path="/ManagementSlider-admin" element={<ManagementSlider/>}/>
+        <Route path="/PopupInformasiTerbaru-admin" element={<PopupInformasiTerbaru/>}/>
+        <Route path="/PopupInformasiPopuler-admin" element={<PopupInformasiPopuler/>}/>
+        <Route path="/PopupDigitalService-admin" element={<DigitalServicesPopup/>}/>
       </Routes>
 
     </Router>
