@@ -8,13 +8,14 @@ const Dashboard = () => {
   const [] = createSignal(true);
 
   return (
-  
-    <div class="dashboard-container">
-
-      <div class="main-content">
+    <div>
       <Sidebar/>
+    <div class="dashboard-container">
+      
+      <div class="main-content">
      {<Data/>}
       </div>
+    </div>
     </div>
   );
 };

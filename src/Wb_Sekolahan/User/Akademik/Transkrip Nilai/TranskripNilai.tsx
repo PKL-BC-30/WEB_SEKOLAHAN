@@ -9,7 +9,7 @@ import Navbar from '../../Navbar/navbar';
 const TranscriptGrades: Component = () => {
     const [columnDefs] = createSignal([
         { headerName: 'No', field: 'no', width: 70 },
-        { headerName: 'Mata Pelajaran', field: 'subject', flex: 1 },
+        { headerName: 'Mata Pelajaran', field: 'subject', width: 200 },
         { headerName: 'KKM', field: 'kkm', width: 100 },
         { headerName: 'Nilai Pengetahuan', field: 'knowledge', width: 200 },
         { headerName: 'Nilai Keterampilan', field: 'skill', width: 200 },

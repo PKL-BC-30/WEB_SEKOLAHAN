@@ -64,7 +64,7 @@ const CardComponent = () => {
                         {tasks()
                             .filter((task) => task.missed)
                             .map((task, index) => (
-                                <div class="task-card_item task-card_item--missed">
+                                <div class="task-card__item task-card__item--missed">
                                     <input
                                         type="radio"
                                         checked={task.completed}
@@ -93,7 +93,7 @@ const CardComponent = () => {
                         {tasks()
                             .filter((task) => task.completed)
                             .map((task, index) => (
-                                <div class="task-card_item task-card_item--completed">
+                                <div class="task-card__item task-card__item--completed">
                                     <input
                                         type="radio"
                                         checked={task.completed}

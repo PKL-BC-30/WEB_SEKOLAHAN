@@ -5,10 +5,15 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   padding: 16px;
   width: 1070px;
-  margin-top: 30px;
-  margin-left: 50px;
+  height: 70vh;
+  margin-top: 100px;
+  margin-left: 275px;
   margin-bottom: 224px;
-  
+}
+
+.sidebar {
+  width: 50%;
+  background-color: black;
 }
 
 .jadwalTable {

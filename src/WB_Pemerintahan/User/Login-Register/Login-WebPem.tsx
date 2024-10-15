@@ -17,7 +17,7 @@ function LoginForm() {
       console.log("Login berhasil!");
 
       // Arahkan ke halaman lain setelah login berhasil
-      window.location.href = "/dashboard"; // Ganti dengan URL halaman yang sesuai
+      window.location.href = "/DetailBerita-user"; // Ganti dengan URL halaman yang sesuai
     } else {
       console.log("Email atau password salah!");
     }
