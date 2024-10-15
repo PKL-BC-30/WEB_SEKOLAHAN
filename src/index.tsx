@@ -18,7 +18,6 @@ import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/Penilaiandan
 import Materi from './Wb_Sekolahan/User/Materi/materi';
 import DetailMateri from './Wb_Sekolahan/User/Materi/Detail Materi/detailmateri';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
-import Ekstrakurikuler from './Wb_Sekolahan/User/Ekstrakulikuler/eskul';
 
 //PEMERINTAHAN
 import Dashboard from './WB_Pemerintahan/Admin/Dashboard/Dahboard';
@@ -81,9 +80,7 @@ render(
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/Materi-user" element={<Materi/>}/>
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
-        <Route path="/Ekstra-user" element={<Ekstrakurikuler/>} />
-        <Route path="/DetailMateri-user" element={<DetailMateri/>} />
-
+        <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
         <Route path="/PemerintahDaerah-user" element={<PemerintahDaerah/>} />
         <Route path="/RegisterPemerintah" element={<RegisterPemerintah/>} />
         <Route path="/LoginPemerintah" element={<LoginPemerintah/>} />
