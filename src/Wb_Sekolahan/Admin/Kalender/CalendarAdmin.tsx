@@ -14,11 +14,13 @@ const CalendarAdmin = () => {
     { date: '2025-01-08', title: 'Outing Class', description: 'Kunjungan industri ke bandung' },
     { date: '2025-01-13', title: 'Ulangan Harian', description: 'Ada ulangan harian fisika' },
     { date: '2025-01-16', title: '!!!', description: "It's my birthday guisy xixizizi" },
-    { date: '2025-01-27', title: 'Apel Pagi', description: 'Jangan lupa pake seragam + atribut lengkap' },
+    { date: '2025-01-27', title: 'Apel Pagi', description: 'Jangan lupa pake seragam' },
     { date: '2025-01-28', title: 'Senam bersama miss k', description: '(Tidak ada deskripsi)' },
   ]);
 
   const [selectedEvent, setSelectedEvent] = createSignal<Event | null>(null);
+  const [showModal, setShowModal] = createSignal(false);
+  const [newEvent, setNewEvent] = createSignal<Event>({ date: '', title: '', description: '' });
 
   const getDaysInMonth = () => {
     const start = startOfMonth(currentDate());
@@ -36,22 +38,57 @@ const CalendarAdmin = () => {
   };
 
   const handleAddEvent = () => {
-    const newEvent: Event = { date: '2025-01-01', title: 'New Event', description: 'Description here' };
-    setEvents([...events(), newEvent]);
+    setEvents([...events(), { ...newEvent() }]);
+    setShowModal(false);
+    setNewEvent({ date: '', title: '', description: '' }); // Reset form
   };
 
   const handleEditEvent = (date: string, updatedEvent: Partial<Event>) => {
     setEvents(events().map(event => (event.date === date ? { ...event, ...updatedEvent } : event)));
   };
 
-  // Fungsi untuk mengganti tahun
   const changeYear = (increment: number) => {
     setCurrentDate(prev => new Date(prev.getFullYear() + increment, prev.getMonth(), 1));
   };
 
   return (
     <div class={styles['penilaian-container']}>
-      <button class={styles['add-event-button']} onClick={handleAddEvent}>Tambah Kegiatan</button>
+      <button class={styles['add-event-button']} onClick={() => setShowModal(true)}>Tambah Kegiatan</button>
+
+      {/* Modal for adding new event */}
+      {showModal() && (
+        <div class={styles['modal-backdrop']}>
+          <div class={styles['modal']}>
+            <h2>Tambah Kegiatan Baru</h2>
+            <label>
+              Tanggal:
+              <input 
+                type="date" 
+                value={newEvent().date} 
+                onInput={(e) => setNewEvent({ ...newEvent(), date: e.currentTarget.value })} 
+              />
+            </label>
+            <label>
+              Judul:
+              <input 
+                type="text" 
+                value={newEvent().title} 
+                onInput={(e) => setNewEvent({ ...newEvent(), title: e.currentTarget.value })} 
+              />
+            </label>
+            <label>
+              Deskripsi:
+              <textarea 
+                value={newEvent().description} 
+                onInput={(e) => setNewEvent({ ...newEvent(), description: e.currentTarget.value })} 
+              />
+            </label>
+            <button onClick={handleAddEvent}>Simpan</button>
+            <button onClick={() => setShowModal(false)}>Batal</button>
+          </div>
+        </div>
+      )}
+
       <div class={styles['calendar-content']}>
         <div class={styles['calendar-container']}>
           <div class={styles['boxCalender']}>
@@ -67,7 +104,6 @@ const CalendarAdmin = () => {
                     class={styles['nav-button']}>
                     &gt;
                   </button>
-                  {/* Tombol untuk mengganti tahun */}
                   <button onClick={() => changeYear(-1)} class={styles['nav-button']}>
                     &lt;&lt; Tahun Sebelumnya
                   </button>
