@@ -40,6 +40,7 @@ import Pengaduan from './WB_Pemerintahan/User/Pengaduan_User/PengaduanUser';
 import RiwayatPengaduan from './WB_Pemerintahan/User/Pengaduan_User/RiwayatPengaduan'
 import DataPenduduk from './WB_Pemerintahan/Admin/Kelola Data Penduduk/DataPenduduk';
 import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/bansos';
+import ManajemenProfilDaerah from './WB_Pemerintahan/Admin/Manajemen Profil Daerah/RegionProfile';
 
 
 import PengaduaAdmin from './WB_Pemerintahan/Admin/Pengaduan-Admin/PengaduanAdmin';
@@ -72,6 +73,7 @@ render(
 
         <Route path="/ManajemenPemerintahDaerah-admin" element={<ManajemenPemerintahDaerah/>}/>
         <Route path="/ManajemenBeritaPengumuman-admin" element={<ManajemenBeritaPengumuman/>}/>
+        <Route path="/ProfilDaerah-admin" element={<ManajemenProfilDaerah/>}/>
         <Route path="/TambahBerita-admin" element={<TambahBerita/>}/>
         <Route path="/TambahLayanan-admin" element={<TambahLayanan/>}/>
         <Route path="/EditBerita-admin" element={<EditBerita/>}/>
