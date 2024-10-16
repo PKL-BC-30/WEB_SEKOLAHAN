@@ -20,6 +20,7 @@ const CalendarAdmin = () => {
 
   const [selectedEvent, setSelectedEvent] = createSignal<Event | null>(null);
   const [showModal, setShowModal] = createSignal(false);
+  const [showEditModal, setShowEditModal] = createSignal(false); // For edit modal
   const [newEvent, setNewEvent] = createSignal<Event>({ date: '', title: '', description: '' });
 
   const getDaysInMonth = () => {
@@ -49,6 +50,22 @@ const CalendarAdmin = () => {
 
   const changeYear = (increment: number) => {
     setCurrentDate(prev => new Date(prev.getFullYear() + increment, prev.getMonth(), 1));
+  };
+
+  const handleEventClick = (event: Event) => {
+    setSelectedEvent(event);
+    setShowEditModal(true); // Open modal for editing
+  };
+
+  const handleSaveEdit = () => {
+    if (selectedEvent()) {
+      handleEditEvent(selectedEvent()!.date, {
+        title: selectedEvent()?.title,
+        description: selectedEvent()?.description,
+      });
+      setShowEditModal(false);
+      setSelectedEvent(null);
+    }
   };
 
   return (
@@ -126,7 +143,7 @@ const CalendarAdmin = () => {
                           ${!isSameMonth(day, currentDate()) ? styles['inactive'] : ''} 
                           ${isToday(day) ? styles['active'] : ''} 
                           ${event ? styles['has-event'] : ''}`}
-                        onClick={() => event && setSelectedEvent(event)}
+                        onClick={() => event && handleEventClick(event)} // Show event details on click
                       >
                         <div>{format(day, 'd')}</div>
 
@@ -160,19 +177,29 @@ const CalendarAdmin = () => {
             </div>
           </div>
 
-          {selectedEvent() && (
-            <div class={styles['edit-event-form']}>
-              <h3>Edit Event</h3>
-              <input
-                type="text"
-                value={selectedEvent()?.title}
-                onInput={(e) => handleEditEvent(selectedEvent()?.date!, { title: e.currentTarget.value })}
-              />
-              <textarea
-                value={selectedEvent()?.description}
-                onInput={(e) => handleEditEvent(selectedEvent()?.date!, { description: e.currentTarget.value })}
-              />
-              <button onClick={() => setSelectedEvent(null)}>Selesai</button>
+          {/* Edit Event Modal */}
+          {showEditModal() && selectedEvent() && (
+            <div class={styles['modal-backdrop']}>
+              <div class={styles['modal']}>
+                <h3>Edit Event</h3>
+                <label>
+                  Judul:
+                  <input
+                    type="text"
+                    value={selectedEvent()?.title}
+                    onInput={(e) => setSelectedEvent({ ...selectedEvent()!, title: e.currentTarget.value })}
+                  />
+                </label>
+                <label>
+                  Deskripsi:
+                  <textarea
+                    value={selectedEvent()?.description}
+                    onInput={(e) => setSelectedEvent({ ...selectedEvent()!, description: e.currentTarget.value })}
+                  />
+                </label>
+                <button onClick={handleSaveEdit}>Simpan</button>
+                <button onClick={() => setShowEditModal(false)}>Batal</button>
+              </div>
             </div>
           )}
         </div>
