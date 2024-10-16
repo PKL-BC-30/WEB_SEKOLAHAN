@@ -5,10 +5,13 @@ import EditResidentModal from './modaledit';
 import * as XLSX from 'xlsx';
 
 
+
 import './datapenduduk.css';
 
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
+import Sidebar from '../Sidebar/sidebaradmin';
+import Navbar from '../Navbar/navbaradmin';
 const notyf = new Notyf();
 
 interface Resident {
@@ -118,7 +121,7 @@ const DataManagement = () => {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(worksheet) as Omit<Resident, 'id'>[];
-        
+
         const importedResidents = jsonData.map((resident, index) => ({
           ...resident,
           id: index + 1
@@ -132,128 +135,133 @@ const DataManagement = () => {
   };
 
   return (
-    <div class="data-management">
-      <header>
-        <h1>Data Penduduk</h1>
-        <div class="header-buttons">
-          <button class="add-data" onClick={() => setAddModalOpen(true)}>
-            + Tambah Data
+    <div>
+      <Navbar />
+      <Sidebar />
+      <div class="data-management">
+      
+        <header>
+          <h1>Data Penduduk</h1>
+          <div class="header-buttons">
+            <button class="add-data" onClick={() => setAddModalOpen(true)}>
+              + Tambah Data
+            </button>
+            <button class="export-file" onClick={exportToExcel}>
+              Export data penduduk
+            </button>
+            <input
+              type="file"
+              id="fileUpload"
+              accept=".xlsx, .xls"
+              style="display: none;"
+              onChange={importFromExcel}
+            />
+            <button class="import-file" onClick={() => document.getElementById('fileUpload')?.click()}>
+              Import data penduduk
+            </button>
+          </div>
+        </header>
+
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nama Lengkap</th>
+                <th>NIK</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Keadaan Warga</th>
+                <th>Tanggal Wafat</th>
+                <th>Jenis Kelamin</th>
+                <th>RT/RW</th>
+                <th>Desa</th>
+                <th>Kecamatan</th>
+                <th>Kabupaten</th>
+                <th>Provinsi</th>
+                <th>Pekerjaan</th>
+                <th>Agama</th>
+                <th>Golongan Darah</th>
+                <th>Nomor Telepon</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <For each={paginatedResidents()}>
+                {(resident, index) => (
+                  <tr class={index() % 2 === 0 ? 'even' : 'odd'}>
+                    <td>{(currentPage() - 1) * itemsPerPage + index() + 1}</td>
+                    <td>{resident.namaLengkap}</td>
+                    <td>{resident.NIK}</td>
+                    <td>{resident.tempatLahir}</td>
+                    <td>{resident.tanggalLahir}</td>
+                    <td>
+                      <span class={`status ${resident.keadaanWarga.toLowerCase()}`}>
+                        {resident.keadaanWarga}
+                      </span>
+                    </td>
+                    <td>{resident.keadaanWarga === 'Wafat' ? resident.tanggalWafat : '-'}</td>
+                    <td>{resident.jenisKelamin}</td>
+                    <td>{resident.RT_RW}</td>
+                    <td>{resident.desa}</td>
+                    <td>{resident.kecamatan}</td>
+                    <td>{resident.kabupaten}</td>
+                    <td>{resident.provinsi}</td>
+                    <td>{resident.pekerjaan}</td>
+                    <td>{resident.agama}</td>
+                    <td>{resident.golonganDarah}</td>
+                    <td>{resident.nomorTelepon}</td>
+                    <td>
+                      <button
+                        class="edit"
+                        onClick={() => openEditModal(resident)}
+                      >
+                        Edit
+                      </button>
+                      <button class="delete" onClick={() => deleteResident(resident.id)}>
+                        Hapus
+                      </button>
+                    </td>
+                  </tr>
+                )}
+              </For>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button
+            class="prev"
+            onClick={() => setCurrentPage(currentPage() - 1)}
+            disabled={currentPage() === 1}
+          >
+            Previous
           </button>
-          <button class="export-file" onClick={exportToExcel}>
-            Export data penduduk
-          </button>
-          <input
-            type="file"
-            id="fileUpload"
-            accept=".xlsx, .xls"
-            style="display: none;"
-            onChange={importFromExcel}
-          />
-          <button class="import-file" onClick={() => document.getElementById('fileUpload')?.click()}>
-            Import data penduduk
+          <span>Page {currentPage()} of {totalPages()}</span>
+          <button
+            class="next"
+            onClick={() => setCurrentPage(currentPage() + 1)}
+            disabled={currentPage() === totalPages()}
+          >
+            Next
           </button>
         </div>
-      </header>
 
-      <div class="data-table">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nama Lengkap</th>
-              <th>NIK</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
-              <th>Keadaan Warga</th>
-              <th>Tanggal Wafat</th>
-              <th>Jenis Kelamin</th>
-              <th>RT/RW</th>
-              <th>Desa</th>
-              <th>Kecamatan</th>
-              <th>Kabupaten</th>
-              <th>Provinsi</th>
-              <th>Pekerjaan</th>
-              <th>Agama</th>
-              <th>Golongan Darah</th>
-              <th>Nomor Telepon</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <For each={paginatedResidents()}>
-              {(resident, index) => (
-                <tr class={index() % 2 === 0 ? 'even' : 'odd'}>
-                  <td>{(currentPage() - 1) * itemsPerPage + index() + 1}</td>
-                  <td>{resident.namaLengkap}</td>
-                  <td>{resident.NIK}</td>
-                  <td>{resident.tempatLahir}</td>
-                  <td>{resident.tanggalLahir}</td>
-                  <td>
-                    <span class={`status ${resident.keadaanWarga.toLowerCase()}`}>
-                      {resident.keadaanWarga}
-                    </span>
-                  </td>
-                  <td>{resident.keadaanWarga === 'Wafat' ? resident.tanggalWafat : '-'}</td>
-                  <td>{resident.jenisKelamin}</td>
-                  <td>{resident.RT_RW}</td>
-                  <td>{resident.desa}</td>
-                  <td>{resident.kecamatan}</td>
-                  <td>{resident.kabupaten}</td>
-                  <td>{resident.provinsi}</td>
-                  <td>{resident.pekerjaan}</td>
-                  <td>{resident.agama}</td>
-                  <td>{resident.golonganDarah}</td>
-                  <td>{resident.nomorTelepon}</td>
-                  <td>
-                    <button
-                      class="edit"
-                      onClick={() => openEditModal(resident)}
-                    >
-                      Edit
-                    </button>
-                    <button class="delete" onClick={() => deleteResident(resident.id)}>
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-              )}
-            </For>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="pagination">
-        <button
-          class="prev"
-          onClick={() => setCurrentPage(currentPage() - 1)}
-          disabled={currentPage() === 1}
-        >
-          Previous
-        </button>
-        <span>Page {currentPage()} of {totalPages()}</span>
-        <button
-          class="next"
-          onClick={() => setCurrentPage(currentPage() + 1)}
-          disabled={currentPage() === totalPages()}
-        >
-          Next
-        </button>
-      </div>
-
-      <AddResidentModal
-        isOpen={isAddModalOpen()}
-        onClose={() => setAddModalOpen(false)}
-        onSubmit={handleAddModalSubmit}
-      />
-
-      {isEditModalOpen() && (
-        <EditResidentModal
-          isOpen={isEditModalOpen()}
-          onClose={() => setEditModalOpen(false)}
-          onSubmit={handleEditModalSubmit}
-          resident={editingResident()}
+        <AddResidentModal
+          isOpen={isAddModalOpen()}
+          onClose={() => setAddModalOpen(false)}
+          onSubmit={handleAddModalSubmit}
         />
-      )}
+
+        {isEditModalOpen() && (
+          <EditResidentModal
+            isOpen={isEditModalOpen()}
+            onClose={() => setEditModalOpen(false)}
+            onSubmit={handleEditModalSubmit}
+            resident={editingResident()}
+          />
+        )}
+      </div>
     </div>
   );
 };

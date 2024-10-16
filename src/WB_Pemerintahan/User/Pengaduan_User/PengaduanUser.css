@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
@@ -32,18 +29,8 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    /* Light border for form container */
     margin-bottom: 10%;
     margin-left: 17%;
-}
-
-.label-pengaduan {
-    font-size: 14px;
-    color: black;
-}
-.label-pengaduan span {
-    font-size: 14px;
-    color: red;
 }
 
 /* Form Header */
@@ -57,13 +44,11 @@
     font-weight: 600;
     margin: 0;
     color: #3578e5;
-    /* Main color */
 }
 
 .pengaduan-form-header p {
     margin: 0.5rem 0;
     color: #666;
-    /* Grey text for instructions */
 }
 
 .pengaduan-tooltip {
@@ -80,8 +65,17 @@ form {
     gap: 1rem;
 }
 
+.label-pengaduan {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    color: black;
+}
 
-/* Styling untuk semua input-pengaduan */
+.label-pengaduan span {
+    color: red;
+}
+
 .input-pengaduan {
     width: 100%;
     padding: 0.75rem;
@@ -93,23 +87,46 @@ form {
     transition: border-color 0.3s;
 }
 
-/* Placeholder styling untuk .input-pengaduan */
 .input-pengaduan::placeholder {
     color: #aaa;
 }
 
-/* Focus effect hanya pada elemen dengan class .input-pengaduan */
 .input-pengaduan:focus {
     border-color: #3578e5;
     outline: none;
 }
 
-/* Styling untuk label-pengaduan */
-.label-pengaduan {
-    display: block;
-    font-weight: bold;
-    font-size: 14px;
+/* Date input specific styles */
+.input-pengaduan[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
     color: #333;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 16px;
+    border: 1px solid #ecedee;
+    background: #fdfdfd;
+    padding: 5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+.input-pengaduan[type="date"]:focus {
+    color: #333;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.input-pengaduan[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(0.8);
+}
+
+.input-pengaduan[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1
 }
 
 /* File upload */
@@ -192,48 +209,49 @@ button[type="submit"]:hover {
     color: #333;
 }
 
+/* Illustration Card */
 .illustration-card {
-    background: linear-gradient(135deg, #3578e5 0%, #4a90e2 100%); /* Gradient background */
+    background: linear-gradient(135deg, #3578e5 0%, #4a90e2 100%);
     color: white;
     text-align: center;
     padding: 5rem 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Larger shadow for emphasis */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     width: 100vw;
-    position: relative; /* Relative positioning for decorative elements */
+    position: relative;
     overflow: hidden;
     margin-bottom: 20px;
 }
 
-/* Decorative Waves */
-.illustration-card::before, .illustration-card::after {
+.illustration-card::before,
+.illustration-card::after {
     content: '';
     position: absolute;
     z-index: 0;
     width: 200%;
     height: 150px;
-    background: rgba(255, 255, 255, 0.1); /* Light translucent waves */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    transform: rotate(-5deg); /* Slight rotation for wave effect */
+    transform: rotate(-5deg);
 }
 
-/* Top Wave */
 .illustration-card::before {
     top: -50px;
     left: -100px;
-    transform: rotate(10deg); /* Rotate to make it look like a wave */
+    transform: rotate(10deg);
 }
 
-/* Bottom Wave */
 .illustration-card::after {
     bottom: -50px;
     right: -100px;
-    transform: rotate(-10deg); /* Rotate to mirror the top wave */
+    transform: rotate(-10deg);
 }
 
-/* Content Inside the Card */
 .illustration-content {
     position: relative;
-    z-index: 1; /* Ensure content stays above the background */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .illustration-card h1 {
@@ -247,38 +265,8 @@ button[type="submit"]:hover {
     margin-bottom: 1.5rem;
 }
 
-/* Extra Decorative Circles */
-.illustration-card .decorative-circle {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white circles */
-    border-radius: 50%;
-    z-index: 0;
-}
-
-/* Circle Positions */
-.circle1 {
-    width: 150px;
-    height: 150px;
-    top: -75px;
-    left: -75px;
-}
-
-.circle2 {
-    width: 200px;
-    height: 200px;
-    bottom: -100px;
-    right: -100px;
-}
-
-.illustration-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .illustration-image {
     width: 120px;
-    /* Atur ukuran gambar sesuai kebutuhan */
     height: auto;
     margin-bottom: 1rem;
 }
@@ -293,11 +281,39 @@ button[type="submit"]:hover {
     margin: 0;
 }
 
+/* Floating Button */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #3578e5;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
 
-/* Small screens (responsive) */
+.floating-button:hover {
+    background-color: #2b5cb8;
+}
+
+.floating-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .pengaduan-form-container {
         padding: 1.5rem;
+        margin-left: 0;
     }
 
     .pengaduan-form-header h2 {

@@ -12,12 +12,41 @@ import widgetTotalEkstrakulikuler from '../../Admin/AssetAdmin/widgetTotalEkstra
 
 const Dashboard = () => {
   const [selectedStats, setSelectedStats] = createSignal([
-    { title: 'Total User', value: 40689, icon: widgetTotalUser },
-    { title: 'Total Siswa Kelas', value: 40689, icon: widgetTotalSiswaKelas },
-    { title: 'Total Guru', value: 40689, icon: widgetTotalGuru },
+    { title: 'Total User', value: 0, icon: widgetTotalUser },
+    { title: 'Total Siswa Kelas', value: 0, icon: widgetTotalSiswaKelas },
+    { title: 'Total Guru', value: 0, icon: widgetTotalGuru },
     { title: 'Total Mata Pelajaran', value: 40689, icon: widgetTotalMapel },
     { title: 'Total Ekstrakurikuler', value: 40689, icon: widgetTotalEkstrakulikuler },
   ]);
+
+  // Fungsi untuk fetch data siswa dan guru dari API
+  const fetchData = async () => {
+    try {
+      // Fetch data siswa
+      const siswaResponse = await fetch('http://127.0.0.1:8080/lihat-siswa');
+      const siswaData = await siswaResponse.json();
+
+      // Fetch data guru
+      const guruResponse = await fetch('http://127.0.0.1:8080/lihat-guru');
+      const guruData = await guruResponse.json();
+
+      // Set data ke widget
+      setSelectedStats([
+        { title: 'Total User', value: siswaData.length + guruData.length, icon: widgetTotalUser },
+        { title: 'Total Siswa Kelas', value: siswaData.length, icon: widgetTotalSiswaKelas },
+        { title: 'Total Guru', value: guruData.length, icon: widgetTotalGuru },
+        { title: 'Total Mata Pelajaran', value: 40689, icon: widgetTotalMapel },
+        { title: 'Total Ekstrakurikuler', value: 40689, icon: widgetTotalEkstrakulikuler },
+      ]);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // Jalankan fetchData ketika komponen dimount
+  createEffect(() => {
+    fetchData();
+  });
 
   createEffect(() => {
     // Line Chart
@@ -96,6 +125,7 @@ const Dashboard = () => {
     };
   });
 
+  
   return (
     <div class="dashboard">
       <h2 class="dashboard-title">Dashboard</h2>

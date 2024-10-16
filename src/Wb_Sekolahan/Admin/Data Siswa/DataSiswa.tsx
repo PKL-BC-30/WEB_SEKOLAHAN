@@ -1,4 +1,4 @@
-import { createSignal, For, JSX, Show } from 'solid-js';
+import { createSignal, For, JSX, Show, onMount } from 'solid-js';
 import AgGridSolid from 'ag-grid-solid';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
@@ -230,7 +230,7 @@ const DetailView = (props: { className: string; onBack: () => void; students: St
     { field: 'noHp', headerName: 'NO HP', sortable: true, filter: true }
   ];
 
-  
+
 
   return (
     <div class="detail-view">
@@ -279,18 +279,71 @@ export const DataSiswa = () => {
     },
   ]);
 
-  const addClass = (name: string, students: number, level: string) => {
-    const newId = classes().length > 0 ? Math.max(...classes().map(c => c.id)) + 1 : 1;
+
+  onMount(async () => {
+    try {
+      // Fetch kelas dari backend
+      const response = await fetch('http://localhost:8080/lihat-kelas');
+
+      if (response.ok) {
+        const data = await response.json();
+        const formattedClasses = data.map((item: any) => ({
+          id: item.id,
+          name: item.nama_kelas,
+          students: item.jumlah_siswa,
+          level: item.tingkat_kelas,
+        }));
+
+        setClasses(formattedClasses);
+        localStorage.setItem('classes', JSON.stringify(formattedClasses));
+      } else {
+        console.error('Failed to fetch classes:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching classes:', error);
+    }
+
+    // Jika ada students yang disimpan di localStorage, set kembali
+    const savedStudents = localStorage.getItem('students');
+    if (savedStudents) setStudents(JSON.parse(savedStudents));
+  });
+
+
+  const addClass = async (name: string, students: number, level: string) => {
     const fullName = `${level} ${name}`;
-    setClasses([...classes(), { id: newId, name: fullName, students, level }]);
+
+    try {
+      const response = await fetch('http://localhost:8080/tambah-kelas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tingkat_kelas: level,
+          nama_kelas: fullName,
+          jumlah_siswa: students,
+        }),
+      });
+
+      if (response.ok) {
+        const newClass = await response.json();
+
+        setClasses([...classes(), { id: newClass.id, name: fullName, students, level }]);
+      } else {
+        console.error('Gagal menambahkan kelas:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Terjadi kesalahan saat menambahkan kelas:', error);
+    }
   };
+
 
   const addStudent = (newStudent: Omit<Student, 'id'>) => {
     const newId = students().length > 0 ? Math.max(...students().map(s => s.id)) + 1 : 1;
     setStudents([...students(), { ...newStudent, id: newId }]);
     // Update the student count for the selected class
     if (selectedDetailClass()) {
-      setClasses(classes().map(c => 
+      setClasses(classes().map(c =>
         c.name === selectedDetailClass() ? { ...c, students: c.students + 1 } : c
       ));
     }
@@ -312,12 +365,12 @@ export const DataSiswa = () => {
               className={selectedDetailClass() || ''}
               onBack={() => setSelectedDetailClass(null)}
               students={students()}
-              
+
             />
             <div class="PlusSiswa">
-            <CMSButton onClick={() => { setModalType('student'); setIsModalOpen(true); }}>
-              + Siswa
-            </CMSButton>
+              <CMSButton onClick={() => { setModalType('student'); setIsModalOpen(true); }}>
+                + Siswa
+              </CMSButton>
             </div>
           </>
         }

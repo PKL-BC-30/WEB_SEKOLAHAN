@@ -7,8 +7,9 @@ const DetailBerita: Component = () => {
     return (
 
         <>
+        <Navbar />
             <div class="container">
-                <Navbar />
+                
                 <div class="detail-berita">
 
                     <div class="sejajar">
