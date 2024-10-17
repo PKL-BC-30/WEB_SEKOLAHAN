@@ -49,6 +49,7 @@ const Sidebar = () => {
 
   const isLocalGovernmentPage = location.pathname === "/ManajemenPemerintahDaerah-admin";
   const isNewsAnnouncementPage = location.pathname === "/ManajemenBeritaPengumuman-admin"
+  const isProfileDaerahPage = location.pathname === "/ProfilDaerah-admin"
     || location.pathname === "/TambahBerita-admin"
     || location.pathname === "/TambahLayanan-admin"
     || location.pathname === "/EditBerita-admin"
@@ -75,9 +76,12 @@ const Sidebar = () => {
           <h4 class={isDashboard ? "active" : ""}>Dashboard</h4>
         </div>
 
-        <div class="kelolaprofil" onclick={handleClickProfileDaerahAdmin}>
+        <div
+          class={`kelolaprofil ${isProfileDaerahPage ? "local-profile-active" : ""}`}
+          onclick={handleClickProfileDaerahAdmin}
+        >
           <img src={profildaerah} alt="Kelola Profil Daerah" />
-          <h4>Kelola Profil Daerah</h4>
+          <h4 class={isProfileDaerahPage ? "active" : ""}>Kelola Profil Daerah</h4>
         </div>
 
         <div class={`visimisi ${isLocalGovernmentPage ? "local-government-active" : ""}`} onclick={handleClickVisiMisi}>
@@ -103,7 +107,7 @@ const Sidebar = () => {
         )}
 
         <div
-          class={`info ${isNewsAnnouncementPage ? "news-announcement-active" : ""}`} 
+          class={`info ${isNewsAnnouncementPage ? "news-announcement-active" : ""}`}
           onclick={handleClickInfoPublik}
         >
           <img src={isNewsAnnouncementPage ? infoactive : info} alt="Info Publik" />

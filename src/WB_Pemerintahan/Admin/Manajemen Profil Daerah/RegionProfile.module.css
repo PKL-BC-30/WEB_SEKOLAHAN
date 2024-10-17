@@ -17,13 +17,13 @@
     display: flex;
     gap: 30px;
     background-color: #ffffff;
-    margin-right: -210px;
+    margin-right: -220px;
     margin-left: 60px;
     margin-top: 70px;
     margin-bottom: -20px;
     border-radius: 8px;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 60px;
     padding-right: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -61,8 +61,8 @@
       border-radius: 4px;
       transition: background-color 0.3s, transform 0.3s; /* Tambahkan transisi untuk efek interaksi */
       position: absolute; /* Membuat tombol keluar dari aliran dokumen */
-      top: 85vh; /* Atur jarak dari atas halaman */
-      right: 200px; /* Atur jarak dari kanan halaman */
+      top: 90vh; /* Atur jarak dari atas halaman */
+      right: 240px; /* Atur jarak dari kanan halaman */
       z-index: 100; /* Pastikan tombol berada di atas elemen lain */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk kesan mengambang */
     }
@@ -90,6 +90,7 @@
       color: #333;
       margin-bottom: 15px;
       text-align: justify;
+      margin-right: 60px;
     }
     
     /* Popup styles */
