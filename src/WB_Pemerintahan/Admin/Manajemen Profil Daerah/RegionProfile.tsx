@@ -3,6 +3,7 @@ import { useNavigate } from '@solidjs/router';
 import styles from './RegionProfile.module.css';
 import Navbar from '../Navbar/navbaradmin';
 import Sidebar from '../Sidebar/sidebaradmin';
+import axios from 'axios';
 
 declare global {
     interface Window {
@@ -18,33 +19,7 @@ const ProfileDaerah = () => {
     // State untuk modal dan form input
     const [isModalOpen, setIsModalOpen] = createSignal(false);
     const [title, setTitle] = createSignal("Profil Kota Bandung");
-    const [description, setDescription] = createSignal(`
-
-                Kota Bandung terletak di wilayah Jawa Barat dan merupakan Ibukota
-                Propinsi Daerah Tingkat I Jawa Barat. Kota Bandung terletak diantara
-                107 0 Bujur Timur dan 6 0 55' Lintang Selatan. Lokasi Kotamadya
-                Bandung cukup strategis, dilihat dari segi komunikasi, perekonomian
-                maupun keamanan.
-
-              Secara topografis KotaBandung terletak pada ketinggian 768 meter di
-              atas permukaan laut, titik tertinggi di daerah Utara dengan ketinggian
-              1.050 meter dan terendah di sebelah Selatan adalah 675 meter di atas
-              permukaan laut. Di wilayah Kotamadya Bandung bagian Selatan
-              permukaan tanah relatif datar, sedangkan di wilayah kota bagian Utara
-              berbukit-bukit sehingga merupakan panorama yang indah.
-
-              Keadaan Geologis dan tanah yang ada di Kota Bandung dan sekitarnya
-              terbentuk pada zaman Kwartier dan mempunyai lapisan tanah alluvial
-              hasil letusan gunung Takuban Perahu. Jenis material di bagian Utara
-              umumnya merupakan jenis andosol, dibagian Selatan serta Timur
-              terdiri atas sebaran jenis alluvial kelabu dengan bahan endapan tanah
-              liat. Di bagian Tengah dan Barat tersebar jenis andosol.
-
-              Iklim kota Bandung dipengaruhi oleh iklim pegunungan yang lembab
-              dan sejuk. Pada tahun 1998 temperatur rata-rata 23,5 o C, curah hujan
-              rata-rata 200,4 mm dan jumlah hari hujan rata-rata 21,3 hari perbulan.
-
-  `);
+    const [description, setDescription] = createSignal("");
 
     const apiKey = 'FRzYDXHeOKdnnyfX9nnSx7PJEbP5fvaU1PxUN8tRKTU';
     const bandungCoordinates = { lat: -6.9175, lng: 107.6191 };
@@ -106,7 +81,36 @@ const ProfileDaerah = () => {
             window.addEventListener('resize', () => newMap.getViewPort().resize());
         }
     };
+
+    // Fetch initial data from BE
+    const fetchProfileData = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/bandung-profile');
+            const { title, description } = response.data;
+            setTitle(title);
+            setDescription(description);
+        } catch (error) {
+            console.error("Error fetching profile data:", error);
+        }
+    };
+
+    // Update data in BE
+    const updateProfileData = async () => {
+        try {
+            await axios.post('http://localhost:8080/bandung-profile', {
+                title: title(),
+                description: description()
+            });
+            setIsModalOpen(false); // Close modal on success
+            alert("Profile updated successfully!");
+        } catch (error) {
+            console.error("Error updating profile data:", error);
+            alert("Failed to update profile.");
+        }
+    };
+
     onMount(() => {
+        // Load map scripts
         const script = document.createElement('script');
         script.src = 'https://js.api.here.com/v3/3.1/mapsjs-core.js';
         script.async = true;
@@ -129,6 +133,7 @@ const ProfileDaerah = () => {
                     loaded++;
                     if (loaded === scripts.length) {
                         initMap();
+                        fetchProfileData(); // Fetch profile data on mount
                     }
                 };
             });
@@ -179,7 +184,7 @@ const ProfileDaerah = () => {
                                 onInput={(e) => setDescription(e.currentTarget.value)}
                             />
                         </label>
-                        <button onClick={() => setIsModalOpen(false)}>Simpan</button>
+                        <button onClick={updateProfileData}>Simpan</button>
                     </div>
                 </div>
             )}

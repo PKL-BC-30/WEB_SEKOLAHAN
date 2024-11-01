@@ -5,53 +5,55 @@ import Navbar from "../Navbar/Navbar";
 
 const HistoryLaporan = () => {
   const [reports, setReports] = createSignal<any[]>([]);
-  const [loggedInUser, setLoggedInUser] = createSignal<string | null>(null);
   const [showDeletePopup, setShowDeletePopup] = createSignal(false);
-  const [reportToDelete, setReportToDelete] = createSignal<any | null>(null); // Menyimpan laporan yang akan dihapus
+  const [reportToDelete, setReportToDelete] = createSignal<any | null>(null);
 
+  // Fetch reports from the server when the component is mounted
   onMount(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser") || "null");
-    if (user) {
-      setLoggedInUser(user.username);
-      fetchUserReports(user.username);
-    }
-
-    window.addEventListener("storage", () => {
-      if (user) {
-        fetchUserReports(user.username);
-      }
-    });
+    fetchReportsFromServer();
   });
 
-  const fetchUserReports = (username: string) => {
-    const savedReports = JSON.parse(localStorage.getItem("reports") || "[]");
-    const userReports = savedReports.filter((report) => report.username === username);
-    setReports(userReports);
-  };
-
-  // Fungsi untuk menampilkan popup sebelum penghapusan
-  const confirmDeleteReport = (report: any) => {
-    setReportToDelete(report);
-    setShowDeletePopup(true); // Tampilkan popup
-  };
-
-  // Fungsi untuk benar-benar menghapus laporan
-  const deleteReport = () => {
-    const report = reportToDelete();
-    if (report) {
-      const savedReports = JSON.parse(localStorage.getItem("reports") || "[]");
-      const updatedReports = savedReports.filter((r: any) => r.id !== report.id);
-      localStorage.setItem("reports", JSON.stringify(updatedReports));
-
-      const savedDataReports = JSON.parse(localStorage.getItem("datapelaporan") || "[]");
-      const updatedDataReports = savedDataReports.filter((r: any) => r.id !== report.id);
-      localStorage.setItem("datapelaporan", JSON.stringify(updatedDataReports));
-
-      fetchUserReports(loggedInUser() || "");
-      setShowDeletePopup(false); // Sembunyikan popup
+  // Fetch the reports from the backend server
+  const fetchReportsFromServer = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8080/pengaduan-all");
+      if (!response.ok) throw new Error("Failed to fetch reports");
+      const data = await response.json();
+      setReports(data);
+    } catch (error) {
+      console.error("Error fetching reports:", error);
     }
   };
 
+  // Confirm delete operation and show the popup
+  const confirmDeleteReport = (report: any) => {
+    setReportToDelete(report);
+    setShowDeletePopup(true);
+  };
+
+  // Delete a report by sending a request to the server
+  const deleteReport = async () => {
+    const report = reportToDelete();
+    if (!report) return;
+
+    try {
+      const response = await fetch(`http://127.0.0.1:8080/pengaduan/${report.id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        // Refetch the reports after successful deletion
+        fetchReportsFromServer();
+        setShowDeletePopup(false);
+      } else {
+        console.error("Failed to delete report");
+      }
+    } catch (error) {
+      console.error("Error deleting report:", error);
+    }
+  };
+
+  // Create a memoized version of the reports list
   const reportList = createMemo(() => reports());
 
   return (
@@ -71,12 +73,12 @@ const HistoryLaporan = () => {
             <p class="riwayat-report-description">{report.description}</p>
             <div class="riwayat-report-footer">
               <span class="riwayat-report-location">{report.location}</span>
-              <span class="riwayat-report-status">{report.action}</span>
+              <span class="riwayat-report-status">{report.status}</span>
             </div>
-            {report.fileName && (
+            {report.file_path && (
               <div class="riwayat-report-attachment">
-                <a href={`path/to/attachments/${report.fileName}`} target="_blank" rel="noopener noreferrer">
-                  Lampiran: {report.fileName}
+                <a href={`path/to/attachments/${report.file_path}`} target="_blank" rel="noopener noreferrer">
+                  Lampiran: {report.file_path}
                 </a>
               </div>
             )}
