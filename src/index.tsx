@@ -32,7 +32,7 @@ import EditBerita from './WB_Pemerintahan/Admin/Manajemen Berita dan Pengumuman/
 import EditLayanan from './WB_Pemerintahan/Admin/Manajemen Berita dan Pengumuman/Edit/editservice';
 import Footer from './WB_Pemerintahan/User/Footer/Footer';
 import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
-import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
+import PemerintahDaerah from './WB_Pemerintahan/User/Pemerintah/PemerintahDaerah';
 import ProfileDaerah from './WB_Pemerintahan/User/Profile Daerah/ProfileDaerah';
 import RegisterPemerintah from './WB_Pemerintahan/User/Login-Register/Register-WebPem';
 import LoginPemerintah from './WB_Pemerintahan/User/Login-Register/Login-WebPem';

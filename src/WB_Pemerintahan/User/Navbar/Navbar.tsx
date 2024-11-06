@@ -39,7 +39,7 @@ const Navbar: Component = () => {
           Profil
         </a>
         <a 
-          href="/pemerintah" 
+          href="/PemerintahDaerah-user" 
           class={isActive('/pemerintah') ? 'active' : ''}
           onClick={() => handleClick('/pemerintah')}
         >

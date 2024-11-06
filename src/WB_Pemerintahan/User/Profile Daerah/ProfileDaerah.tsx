@@ -99,12 +99,6 @@ const ProfileDaerah = () => {
           <div class={styles.mapSection}>
             <div class={styles.mapContainer} ref={mapRef}></div>
             <h2 class={styles.mapTitle}>BANDUNG CITY</h2>
-            <button
-              class={styles.visiMisiButton}
-              onClick={() => navigate('/PemerintahDaerah-user')}
-            >
-              Visi Misi & Struktur Pemerintah
-            </button>
           </div>
           <div class={styles.descriptionSection}>
             <h1 class={styles.title}>Profil Kota Bandung</h1>
