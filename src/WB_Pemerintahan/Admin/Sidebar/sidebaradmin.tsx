@@ -23,7 +23,6 @@ const Sidebar = () => {
   const [showOptions, setShowOptions] = createSignal(false);
   const [isActive, setIsActive] = createSignal(false);
 
-
   const toggleOptions = () => {
     setShowOptions(!showOptions());
   };
@@ -44,19 +43,21 @@ const Sidebar = () => {
     navigate('/Pengaduan-admin');
   };
 
+  const handleClickProfileDaerahAdmin = () => {
+    navigate('/ProfilDaerah-admin');
+  };
 
-
-  // Mendapatkan URL saat ini
   const isLocalGovernmentPage = location.pathname === "/ManajemenPemerintahDaerah-admin";
-  const isNewsAnnouncementPage = location.pathname === "/ManajemenBeritaPengumuman-admin" 
-  || location.pathname === "/TambahBerita-admin" 
-  || location.pathname === "/TambahLayanan-admin"
-  || location.pathname === "/EditBerita-admin"
-  || location.pathname === "/Pengaduan-admin"
-  || location.pathname === "/EditLayanan-admin";
+  const isNewsAnnouncementPage = location.pathname === "/ManajemenBeritaPengumuman-admin"
+  const isProfileDaerahPage = location.pathname === "/ProfilDaerah-admin"
+    || location.pathname === "/TambahBerita-admin"
+    || location.pathname === "/TambahLayanan-admin"
+    || location.pathname === "/EditBerita-admin"
+    || location.pathname === "/Pengaduan-admin"
+    || location.pathname === "/EditLayanan-admin";
 
   const isDashboard = location.pathname === "/Dashboard-Pemerintahan";
-  
+
   return (
     <div class="sidebar-admin">
       <div class="logo">
@@ -70,21 +71,23 @@ const Sidebar = () => {
       </div>
 
       <div class="sidebar-content">
-        <div class={`dashboard-sidebar ${isDashboard ? "local-dashboard-active" : ""} `} onclick={handleClickDashboard}>
+        <div class={`dashboard-sidebar ${isDashboard ? "local-dashboard-active" : ""}`} onclick={handleClickDashboard}>
           <img src={dashboard} alt="Dashboard" />
           <h4 class={isDashboard ? "active" : ""}>Dashboard</h4>
         </div>
 
-        <div class="kelolaprofil">
-          <img src={profildaerah} alt="Dashboard" />
-          <h4>Kelola Profil Daerah</h4>
+        <div
+          class={`kelolaprofil ${isProfileDaerahPage ? "local-profile-active" : ""}`}
+          onclick={handleClickProfileDaerahAdmin}
+        >
+          <img src={profildaerah} alt="Kelola Profil Daerah" />
+          <h4 class={isProfileDaerahPage ? "active" : ""}>Kelola Profil Daerah</h4>
         </div>
 
         <div class={`visimisi ${isLocalGovernmentPage ? "local-government-active" : ""}`} onclick={handleClickVisiMisi}>
           <img src={isLocalGovernmentPage ? visimisiactive : visismisi} alt="Visi Misi" />
           <h4 class={isLocalGovernmentPage ? "active" : ""}>Visi Misi</h4>
         </div>
-
 
         <div class="datadaerah" onclick={toggleOptions}>
           <img src={datadaerah} alt="Transkrip Nilai" />
@@ -104,7 +107,7 @@ const Sidebar = () => {
         )}
 
         <div
-          class={`info ${isNewsAnnouncementPage ? "news-announcement-active" : ""}`} // Menambahkan kondisi aktif
+          class={`info ${isNewsAnnouncementPage ? "news-announcement-active" : ""}`}
           onclick={handleClickInfoPublik}
         >
           <img src={isNewsAnnouncementPage ? infoactive : info} alt="Info Publik" />

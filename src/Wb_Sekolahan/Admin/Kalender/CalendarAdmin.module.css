@@ -84,10 +84,22 @@
 .day-cell {
   padding: 0.5rem;
   border: 1px solid #e2e8f0;
-  border-radius: 0.25rem; /* Perkecil border radius */
+  border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  height: 80px; /* Fix height */
+  width: 80px; /* Fix width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* Centering content horizontally */
 }
+
+.day-cell .event-label {
+  text-align: center; /* Center text inside the box */
+}
+
+
 
 .day-cell:hover {
   background-color: #f7fafc;
@@ -107,10 +119,8 @@
   font-weight: 600;
 }
 
-/* Event Day */
 .day-cell.has-event {
-  background-color: #ebf8ff;
-  /* blue-50 */
+  background-color: #FFD700; /* Gold */
 }
 
 .event-label {
@@ -139,7 +149,6 @@
   height: 36px;
   z-index: 200; /* Agar berada di atas konten lain */
 }
-
 
 .add-event-button:hover {
   background-color: #282828; /* blue-700 */
@@ -180,13 +189,13 @@
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
   border-left: 5px solid #154ae8;
-  width: 250px;
-  margin-left: -50px;
+  width: 100%; /* Ubah width menjadi 100% agar menyesuaikan dengan container */
+  margin-left: 0; /* Hilangkan margin kiri agar tidak terpotong */
 
   /* Flexbox untuk center alignment */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Pusatkan konten secara vertikal */
+  justify-content: center;
   height: 120px; /* Tentukan tinggi yang tetap untuk kotak */
 }
 
@@ -209,4 +218,88 @@
   color: #718096;
   /* gray-600 */
   margin-top: 0.5rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* New modal styles for edit modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal label {
+  display: block;
+  margin: 10px 0;
+}
+
+.modal input[type="text"],
+.modal textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.modal button:last-child {
+  background-color: #6c757d;
+}
+
+.modal button:hover {
+  background-color: #0056b3;
+}
+
+.modal button:last-child:hover {
+  background-color: #5a6268;
 }

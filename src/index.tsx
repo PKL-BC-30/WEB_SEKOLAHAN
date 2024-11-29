@@ -18,7 +18,6 @@ import Tugas from './Wb_Sekolahan/User/Akademik/Penilaian dan Tugas/Penilaiandan
 import Materi from './Wb_Sekolahan/User/Materi/materi';
 import DetailMateri from './Wb_Sekolahan/User/Materi/Detail Materi/detailmateri';
 import TranscriptGrades from './Wb_Sekolahan/User/Akademik/Transkrip Nilai/TranskripNilai';
-import Ekstrakurikuler from './Wb_Sekolahan/User/Ekstrakulikuler/eskul';
 
 //GURU
 import MenuGuru from './Wb_Sekolahan/Guru/navbar/navbar';
@@ -33,7 +32,7 @@ import EditBerita from './WB_Pemerintahan/Admin/Manajemen Berita dan Pengumuman/
 import EditLayanan from './WB_Pemerintahan/Admin/Manajemen Berita dan Pengumuman/Edit/editservice';
 import Footer from './WB_Pemerintahan/User/Footer/Footer';
 import DetailBerita from './WB_Pemerintahan/User/Detail Berita-user/DetailBerita';
-import PemerintahDaerah from './WB_Pemerintahan/User/Profile Daerah/PemerintahDaerah';
+import PemerintahDaerah from './WB_Pemerintahan/User/Pemerintah/PemerintahDaerah';
 import ProfileDaerah from './WB_Pemerintahan/User/Profile Daerah/ProfileDaerah';
 import RegisterPemerintah from './WB_Pemerintahan/User/Login-Register/Register-WebPem';
 import LoginPemerintah from './WB_Pemerintahan/User/Login-Register/Login-WebPem';
@@ -41,6 +40,7 @@ import Pengaduan from './WB_Pemerintahan/User/Pengaduan_User/PengaduanUser';
 import RiwayatPengaduan from './WB_Pemerintahan/User/Pengaduan_User/RiwayatPengaduan'
 import DataPenduduk from './WB_Pemerintahan/Admin/Kelola Data Penduduk/DataPenduduk';
 import BantuanSosial from './WB_Pemerintahan/Admin/Kelola Data Bantuan Sosial/bansos';
+import ManajemenProfilDaerah from './WB_Pemerintahan/Admin/Manajemen Profil Daerah/RegionProfile';
 
 
 import PengaduaAdmin from './WB_Pemerintahan/Admin/Pengaduan-Admin/PengaduanAdmin';
@@ -73,6 +73,7 @@ render(
 
         <Route path="/ManajemenPemerintahDaerah-admin" element={<ManajemenPemerintahDaerah/>}/>
         <Route path="/ManajemenBeritaPengumuman-admin" element={<ManajemenBeritaPengumuman/>}/>
+        <Route path="/ProfilDaerah-admin" element={<ManajemenProfilDaerah/>}/>
         <Route path="/TambahBerita-admin" element={<TambahBerita/>}/>
         <Route path="/TambahLayanan-admin" element={<TambahLayanan/>}/>
         <Route path="/EditBerita-admin" element={<EditBerita/>}/>
@@ -86,9 +87,7 @@ render(
         <Route path="/Penilaian&Tugas-user" element={<Tugas/>} />
         <Route path="/Materi-user" element={<Materi/>}/>
         <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
-        <Route path="/Ekstra-user" element={<Ekstrakurikuler/>} />
-        <Route path="/DetailMateri-user" element={<DetailMateri/>} />
-
+        <Route path="/TranskripNilai-user" element={<TranscriptGrades/>} />
         <Route path="/PemerintahDaerah-user" element={<PemerintahDaerah/>} />
         <Route path="/RegisterPemerintah" element={<RegisterPemerintah/>} />
         <Route path="/LoginPemerintah" element={<LoginPemerintah/>} />

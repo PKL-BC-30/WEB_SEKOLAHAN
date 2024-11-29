@@ -11,26 +11,52 @@ const Pengaduan = () => {
   const [balasan, setBalasan] = createSignal({});
   const [showStatusDropdown, setShowStatusDropdown] = createSignal({});
 
-  onMount(() => {
-    const storedReports = JSON.parse(localStorage.getItem("reports") || "[]");
-    setPengaduan(storedReports);
+  onMount(async () => {
+    try {
+      const response = await fetch('http://localhost:8080/pengaduan-all'); // Adjust your endpoint as needed
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setPengaduan(data);
+    } catch (error) {
+      console.error('Error fetching pengaduan:', error);
+    }
   });
 
   const toggleStatusDropdown = (id) => {
     setShowStatusDropdown(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const handleStatusChange = (id, newStatus) => {
-    setPengaduan(prev => prev.map(item => 
-      item.id === id ? { ...item, status: newStatus } : item
-    ));
-    setShowStatusDropdown(prev => ({ ...prev, [id]: false }));
-    
-    // Update localStorage
-    const updatedReports = pengaduan().map(item => 
-      item.id === id ? { ...item, status: newStatus } : item
-    );
-    localStorage.setItem("reports", JSON.stringify(updatedReports));
+  const handleStatusChange = async (id, newStatus) => {
+    try {
+      // Call the API to update the status
+      const response = await fetch('http://localhost:8080/pengaduan/update', { // Adjust your endpoint as needed
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id, status: newStatus }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update status');
+      }
+
+      // Update the local state after successful API call
+      setPengaduan(prev => prev.map(item => 
+        item.id === id ? { ...item, status: newStatus } : item
+      ));
+      setShowStatusDropdown(prev => ({ ...prev, [id]: false }));
+
+      // Optionally update localStorage if necessary
+      const updatedReports = pengaduan().map(item => 
+        item.id === id ? { ...item, status: newStatus } : item
+      );
+      // localStorage.setItem("reports", JSON.stringify(updatedReports)); // Uncomment if you want to keep localStorage updated
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
   };
 
   const handleBalasanChange = (id, value) => {
@@ -52,13 +78,18 @@ const Pengaduan = () => {
             {(item) => (
               <div class={styles.pengaduanCard}>
                 <div class={styles.gambarContainer}>
-                  <img src={item.fileName} alt="Gambar Aduan" class={styles.gambarAduan} />
+                <img 
+  src={`http://localhost:8080/${item.file_path}`} 
+  alt="Gambar Aduan" 
+  class={styles.gambarAduan} 
+/>
+
                 </div>
                 <div class={styles.infoContainer}>
                   <div class={styles.pengaduanInfo}>
                     <div class={styles.infoItem}>
                       <span class={styles.label}>Nama:</span>
-                      <span class={styles.value}>{item.username}</span>
+                      <span class={styles.value}>{item.name}</span>
                     </div>
                     <div class={styles.infoItem}>
                       <span class={styles.label}>Judul Laporan:</span>
@@ -80,7 +111,7 @@ const Pengaduan = () => {
                   <div class={styles.statusContainer}>
                     <button class={styles.statusButton} onClick={() => toggleStatusDropdown(item.id)}>
                       <img src={IconEditStatus} alt="Edit Status" />
-                      <span>{item.action}</span>
+                      <span>{item.status}</span>
                       <img src={IconArrowDownStatus} alt="Arrow Down" />
                     </button>
                     {showStatusDropdown()[item.id] && (
